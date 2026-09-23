@@ -1,5 +1,5 @@
 """
-WelfareAI - Automated Verification Test Suite
+WelfareAssist - Automated Verification Test Suite
 Tests resource pack integrity, transparent eligibility engine, Flask web routes, and database logging.
 """
 
@@ -199,7 +199,7 @@ class TestFlaskApplication(unittest.TestCase):
     def test_homepage(self):
         res = self.client.get("/")
         self.assertEqual(res.status_code, 200)
-        self.assertIn(b"WelfareAI", res.data)
+        self.assertIn(b"WelfareAssist", res.data)
 
     def test_screening_steps(self):
         for step in [1, 2, 3, 4]:
@@ -244,6 +244,33 @@ class TestFlaskApplication(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         res_overflow = self.client.get("/screening?step=999")
         self.assertEqual(res_overflow.status_code, 200)
+
+    def test_screening_submission_to_results(self):
+        """Verifies clicking 'Check Available Schemes' directly displays results without redirecting to home."""
+        # 1. Enter household attributes through wizard steps
+        self.client.post("/save-step", data={"current_step": "1", "action": "next", "occupation": "plantation"})
+        self.client.post("/save-step", data={"current_step": "2", "action": "next", "annual_income": "120000"})
+        self.client.post("/save-step", data={"current_step": "3", "action": "next", "age": "35", "family_size": "3", "gender": "female"})
+        self.client.post("/save-step", data={"current_step": "4", "action": "review", "district": "Wayanad", "has_disability": "no"})
+
+        # 2. Submit form to /screen
+        res = self.client.post("/screen", follow_redirects=True)
+        self.assertEqual(res.status_code, 200)
+        # Must display results page, NOT redirect to home
+        self.assertNotIn(b"hero-box", res.data)
+        self.assertIn(b"results-container", res.data)
+        self.assertIn(b"DEMO-PLT-001", res.data)
+        self.assertIn(b"Not Currently Matching Schemes", res.data)
+        self.assertIn(b"Download PDF Report", res.data)
+
+    def test_download_report_endpoint(self):
+        """Verifies report generation route renders cleanly with print capability."""
+        self.client.get("/screening?profile=DEMO-HH-01", follow_redirects=True)
+        res = self.client.get("/download-report")
+        self.assertEqual(res.status_code, 200)
+        self.assertIn(b"WelfareAssist", res.data)
+        self.assertIn(b"window.print()", res.data)
+        self.assertIn(b"DEMO-FSH-001", res.data)
 
 
 class TestDatabaseAudit(unittest.TestCase):

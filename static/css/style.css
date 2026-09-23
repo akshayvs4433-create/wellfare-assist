@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WelfareAI - Human-Centred Kerala Public-Service UI Stylesheet
+  WelfareAssist - Human-Centred Kerala Public-Service UI Stylesheet
    Design Philosophy: Trustworthy, calm, accessible, responsive, zero-clutter
    ========================================================================== */
 
@@ -872,6 +872,41 @@ body {
   .header-controls {
     width: 100%;
     justify-content: space-between;
+  }
+}
+
+/* Print & PDF Export Styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .form-actions,
+  .header-controls,
+  .btn-voice,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  .main-content,
+  .results-container,
+  .report-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .card,
+  .scheme-card,
+  .missing-info-box {
+    box-shadow: none !important;
+    border: 1px solid #d1d5db !important;
+    page-break-inside: avoid;
+    margin-bottom: 1rem !important;
   }
 }
 

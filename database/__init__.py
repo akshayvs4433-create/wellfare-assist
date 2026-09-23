@@ -1,2 +1,2 @@
-"""WelfareAI database package"""
+"""WelfareAssist database package"""
 

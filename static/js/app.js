@@ -1,5 +1,5 @@
 /**
- * WelfareAI - Client JavaScript
+ * WelfareAssist - Client JavaScript
  * Handles Web Speech API voice input, demo household modal, and accessibility enhancements.
  */
 

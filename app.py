@@ -1,5 +1,5 @@
 """
-WelfareAI - Multilingual Welfare-Entitlement Screening Assistant
+WelfareAssist - Multilingual Welfare-Entitlement Screening Assistant
 Flask Web Application
 """
 
@@ -13,7 +13,7 @@ from logic.eligibility_engine import EligibilityEngine, load_json_file
 from database.db import log_screening_event, get_screening_stats, init_db
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "welfareai-hackathon-demo-key-2026")
+app.secret_key = os.environ.get("SECRET_KEY", "welfareassist-hackathon-demo-key-2026")
 
 # Initialize database and eligibility engine
 init_db()
@@ -128,29 +128,61 @@ def review():
     return render_template("review.html", household=household)
 
 
-@app.route("/screen", methods=["POST"])
+@app.route("/screen", methods=["GET", "POST"])
 def screen():
     """Form submission endpoint to run screening."""
     household = session.get("household", {})
-    lang = session.get("lang", "en")
+    if not household and request.form:
+        household = {}
+        for field in ["occupation", "annual_income", "age", "family_size", "gender", "district", "has_disability"]:
+            if field in request.form:
+                val = request.form.get(field)
+                if val is not None and str(val).strip() != "":
+                    household[field] = str(val).strip()
+        session["household"] = household
+        session.modified = True
 
-    # Run engine to count and log audit event
-    results = engine.screen_household(household, lang=lang)
-
-    # Log anonymous audit event
-    log_screening_event(
-        occupation=household.get("occupation"),
-        district=household.get("district"),
-        eligible_count=results["summary"]["eligible_count"],
-        more_info_count=results["summary"]["more_info_count"],
-        language=lang
-    )
+    if not household:
+        return redirect(url_for("screening", step=1))
 
     return redirect(url_for("results"))
 
 
-@app.route("/results")
+@app.route("/results", methods=["GET", "POST"])
 def results():
+    household = session.get("household", {})
+    if not household and request.form:
+        household = {}
+        for field in ["occupation", "annual_income", "age", "family_size", "gender", "district", "has_disability"]:
+            if field in request.form:
+                val = request.form.get(field)
+                if val is not None and str(val).strip() != "":
+                    household[field] = str(val).strip()
+        session["household"] = household
+        session.modified = True
+
+    if not household:
+        return redirect(url_for("screening", step=1))
+
+    lang = session.get("lang", "en")
+    results_data = engine.screen_household(household, lang=lang)
+
+    try:
+        log_screening_event(
+            occupation=household.get("occupation"),
+            district=household.get("district"),
+            eligible_count=results_data["summary"]["eligible_count"],
+            more_info_count=results_data["summary"]["more_info_count"],
+            language=lang
+        )
+    except Exception as e:
+        app.logger.warning(f"Failed to log screening event: {e}")
+
+    return render_template("results.html", results=results_data, household=household)
+
+
+@app.route("/download-report")
+def download_report():
     household = session.get("household", {})
     if not household:
         return redirect(url_for("screening", step=1))
@@ -158,7 +190,7 @@ def results():
     lang = session.get("lang", "en")
     results_data = engine.screen_household(household, lang=lang)
 
-    return render_template("results.html", results=results_data, household=household)
+    return render_template("report.html", results=results_data, household=household)
 
 
 @app.route("/reset")

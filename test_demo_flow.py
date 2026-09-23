@@ -9,10 +9,10 @@ from logic.eligibility_engine import EligibilityEngine
 def test_full_demo_flow():
     client = app.test_client()
     print("==================================================")
-    print("STEP 1: Open WelfareAI")
+    print("STEP 1: Open WelfareAssist")
     res = client.get("/")
     assert res.status_code == 200
-    assert b"WelfareAI" in res.data
+    assert b"WelfareAssist" in res.data
     print("  -> Passed: Homepage loaded.")
 
     print("\nSTEP 2: Select Malayalam")

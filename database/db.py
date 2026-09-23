@@ -1,5 +1,5 @@
 """
-WelfareAI - Privacy-Preserving SQLite Audit Storage
+WelfareAssist - Privacy-Preserving SQLite Audit Storage
 Stores only anonymous aggregate screening events. Zero personal identifiable data (PII).
 """
 

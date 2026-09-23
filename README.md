@@ -12,8 +12,8 @@ Plantation labourers (tea, rubber, coffee estate workers) and coastal fishing fa
 - Lack of local language (Malayalam) digital tools tailored for low digital-literacy users.
 - Reluctance to use digital tools that demand excessive sensitive personal documentation (e.g. passwords, bank account numbers, Aadhaar numbers) upfront.
 
-## 2. The WelfareAI Solution
-**WelfareAI** is a transparent, human-centred welfare-entitlement screening assistant. It allows a household to answer a few simple questions (via keyboard or browser voice input in English or Malayalam) and immediately receives:
+## 2. The WelfareAssist Solution
+**WelfareAssist** is a transparent, human-centred welfare-entitlement screening assistant. It allows a household to answer a few simple questions (via keyboard or browser voice input in English or Malayalam) and immediately receives:
 1. **Potentially Eligible Schemes**: Transparently evaluated without external API dependencies.
 2. **"Why This Was Shown"**: Clear, plain-language bullet points explaining every satisfied criterion.
 3. **Required Documents Checklist**: Exactly what certificates (income certificate, welfare board passbook) are required before visiting an office.
@@ -162,7 +162,7 @@ Follow this exact 2-minute walkthrough to demonstrate the prototype to hackathon
    - Click "Try a Demo Household" &rarr; select **"Demo Household 4: Incomplete Household (Missing Income)"**.
    - Run screening.
    - Point out the amber **"Schemes needing more information"** section.
-   - Highlight that WelfareAI **refused to guess** income, and gave the user an **[+ Add Household Income]** button.
+   - Highlight that WelfareAssist **refused to guess** income, and gave the user an **[+ Add Household Income]** button.
 8. **Demonstrate Voice Input**:
    - In Step 2 or Step 3, click the microphone button (`🎤 Speak`).
    - Speak a number; watch the Web Speech API populate the field automatically for low digital-literacy users.

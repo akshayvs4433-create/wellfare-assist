@@ -1,2 +1,2 @@
-"""WelfareAI logic package"""
+"""WelfareAssist logic package"""
 

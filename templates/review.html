@@ -76,6 +76,11 @@
 
     <!-- Submission Form -->
     <form action="{{ url_for('screen') }}" method="POST">
+      {% for k, v in household.items() %}
+        {% if v is not none %}
+          <input type="hidden" name="{{ k }}" value="{{ v }}">
+        {% endif %}
+      {% endfor %}
       <div class="form-actions" style="margin-top: 1rem; border-top: none;">
         <a href="{{ url_for('screening', step=4) }}" class="btn btn-secondary">
           &larr; {{ t('back') }}

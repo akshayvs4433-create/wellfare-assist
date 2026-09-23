@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ 'WelfareAssist - Screening Report' if lang == 'en' else 'WelfareAssist - പരിശോധനാ റിപ്പോർട്ട്' }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; font-size: 12pt; }
+      .report-container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+      .card { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+      .scheme-card { page-break-inside: avoid; }
+    }
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .report-header {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .report-table th, .report-table td {
+      border: 1px solid #e5e7eb;
+      padding: 0.6rem 0.85rem;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    .report-table th {
+      background-color: #f9fafb;
+      color: var(--color-text-muted);
+      width: 35%;
+    }
+  </style>
+</head>
+<body style="background: #f9fafb;">
+
+  <div class="report-container">
+
+    <!-- Top Action Bar (hidden when printing) -->
+    <div class="no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 0.75rem 1rem; background: white; border-radius: 8px; border: 1px solid #e5e7eb;">
+      <a href="{{ url_for('results') }}" class="btn btn-secondary">&larr; {{ 'Back to Results' if lang == 'en' else 'ഫലങ്ങളിലേക്ക് മടങ്ങുക' }}</a>
+      <div style="display: flex; gap: 0.5rem;">
+        <button type="button" onclick="window.print()" class="btn btn-primary">🖨️ {{ 'Print / Save as PDF' if lang == 'en' else 'പ്രിന്റ് / PDF ആയി സേവ് ചെയ്യുക' }}</button>
+      </div>
+    </div>
+
+    <!-- Official Report Header -->
+    <div class="report-header">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--color-primary-border); padding-bottom: 1rem; margin-bottom: 1rem;">
+        <div>
+          <h1 style="color: var(--color-primary); font-size: 1.6rem; font-weight: 800; margin: 0;">
+            WelfareAssist (വെൽഫെയർ Assist)
+          </h1>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+            {{ 'Public Welfare Screening & Entitlement Summary Report' if lang == 'en' else 'ക്ഷേമ പരിശോധനാ സംഗ്രഹ റിപ്പോർട്ട്' }}
+          </p>
+        </div>
+        <div style="text-align: right; font-size: 0.85rem; color: var(--color-text-muted);">
+          <span style="display: inline-block; background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem;">PROTOTYPE</span>
+        </div>
+      </div>
+
+      <!-- Household Information Summary -->
+      <h2 style="font-size: 1.15rem; color: var(--color-primary-dark); font-weight: 700; margin-bottom: 0.5rem;">
+        👤 {{ 'Screened Household Profile' if lang == 'en' else 'കുടുംബ വിവരങ്ങൾ' }}
+      </h2>
+      <table class="report-table">
+        <tbody>
+          <tr>
+            <th>{{ t('occupation') }}</th>
+            <td><strong>{{ results.household_echo.occupation|capitalize }}</strong></td>
+          </tr>
+          <tr>
+            <th>{{ t('annual_income') }}</th>
+            <td>{{ results.household_echo.annual_income }}</td>
+          </tr>
+          <tr>
+            <th>{{ t('applicant_age') }} &amp; {{ t('family_size') }}</th>
+            <td>{{ results.household_echo.age }} {{ 'years' if lang == 'en' else 'വയസ്സ്' }} • {{ results.household_echo.family_size }} {{ 'members' if lang == 'en' else 'അംഗങ്ങൾ' }}</td>
+          </tr>
+          <tr>
+            <th>{{ t('district_label') }}</th>
+            <td>{{ results.household_echo.district }}</td>
+          </tr>
+          <tr>
+            <th>{{ t('disability_label') }}</th>
+            <td>{{ results.household_echo.has_disability }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Screening Results Metrics -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+        <div style="background: var(--color-primary-light); border: 1px solid var(--color-primary-border); padding: 0.75rem; border-radius: 6px; text-align: center;">
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary-dark);">{{ results.summary.eligible_count }}</div>
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--color-primary-dark);">{{ 'Potentially Eligible' if lang == 'en' else 'സാധ്യതയുള്ളവ' }}</div>
+        </div>
+        <div style="background: var(--color-amber-bg); border: 1px solid var(--color-amber-border); padding: 0.75rem; border-radius: 6px; text-align: center;">
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-accent-amber);">{{ results.summary.more_info_count }}</div>
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--color-accent-amber);">{{ 'More Info Needed' if lang == 'en' else 'വിവരങ്ങൾ ആവശ്യമായവ' }}</div>
+        </div>
+        <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 0.75rem; border-radius: 6px; text-align: center;">
+          <div style="font-size: 1.4rem; font-weight: 800; color: #991b1b;">{{ results.summary.not_eligible_count }}</div>
+          <div style="font-size: 0.82rem; font-weight: 600; color: #991b1b;">{{ 'Not Matching' if lang == 'en' else 'യോജിക്കാത്തവ' }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Potentially Eligible Schemes -->
+    {% if results.eligible %}
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h2 class="card-title" style="color: var(--color-primary-dark);">
+          ✓ {{ 'Potentially Eligible Schemes' if lang == 'en' else 'സാധ്യതയുള്ള ക്ഷേമ പദ്ധതികൾ' }} ({{ results.summary.eligible_count }})
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+          {% for scheme in results.eligible %}
+            <div style="border: 1px solid #e5e7eb; border-radius: 6px; padding: 1rem; background: #fff;">
+              <h3 style="font-size: 1.15rem; color: var(--color-primary-dark); font-weight: 700;">{{ scheme.name }}</h3>
+              <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.15rem;">Reference: {{ scheme.id }}</div>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); margin: 0.35rem 0;">{{ scheme.description }}</p>
+
+              <div style="margin-top: 0.5rem; font-size: 0.88rem;">
+                <strong>💡 {{ t('why_shown') }}:</strong>
+                <ul style="margin-left: 1.25rem; margin-top: 0.25rem;">
+                  {% for r in scheme.reasons_why %}
+                    <li>{{ r }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <div style="margin-top: 0.5rem; font-size: 0.88rem;">
+                <strong>📄 {{ t('docs_needed') }}:</strong>
+                <ul style="margin-left: 1.25rem; margin-top: 0.25rem;">
+                  {% for d in scheme.required_documents %}
+                    <li>{{ d }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <div style="margin-top: 0.5rem; font-size: 0.88rem;">
+                <strong>📍 {{ t('where_to_apply') }}:</strong> {{ scheme.application_location }} ({{ scheme.application_method }})
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Section 2: Schemes Needing More Information -->
+    {% if results.more_info_needed %}
+      <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent-amber);">
+        <h2 class="card-title" style="color: var(--color-accent-amber);">
+          ⚠️ {{ t('more_info_needed_title') }} ({{ results.summary.more_info_count }})
+        </h2>
+        <p class="card-subtitle">{{ t('more_info_needed_desc') }}</p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+          {% for scheme in results.more_info_needed %}
+            <div style="border: 1px solid #fed7aa; border-radius: 6px; padding: 0.85rem; background: #fffbeb;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-text-main);">{{ scheme.name }}</h3>
+              <ul style="margin-left: 1.25rem; font-size: 0.88rem; color: #78350f; margin-top: 0.25rem;">
+                {% for exp in scheme.missing_explanations %}
+                  <li>{{ exp }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Section 3: Not Currently Matching Schemes -->
+    {% if results.not_eligible %}
+      <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid #ef4444;">
+        <h2 class="card-title" style="color: #991b1b;">
+          ✕ {{ 'Not Currently Matching Schemes' if lang == 'en' else 'നിലവിൽ യോജിക്കാത്ത പദ്ധതികൾ' }} ({{ results.summary.not_eligible_count }})
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+          {% for scheme in results.not_eligible %}
+            <div style="border: 1px solid #fecaca; border-radius: 6px; padding: 0.85rem; background: #fef2f2;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-text-main);">{{ scheme.name }}</h3>
+              <p style="font-size: 0.88rem; color: var(--color-text-muted); margin: 0.25rem 0;">{{ scheme.description }}</p>
+              <div style="font-size: 0.85rem; color: #991b1b; font-weight: 600; margin-top: 0.35rem;">
+                ⚠️ {{ 'Reason:' if lang == 'en' else 'കാരണം:' }}
+                <ul style="margin-left: 1.25rem; font-weight: normal; color: var(--color-text-main); margin-top: 0.2rem;">
+                  {% for r in scheme.reasons_failed %}
+                    <li>{{ r }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Section 4: Nearest Akshaya Centres -->
+    {% if results.akshaya_centres %}
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h2 class="card-title">
+          🏢 {{ 'Recommended Assistance Point in Your District' if lang == 'en' else 'നിങ്ങളുടെ ജില്ലയിലെ അക്ഷയ സഹായ കേന്ദ്രങ്ങൾ' }}
+        </h2>
+        {% for centre in results.akshaya_centres %}
+          <div class="akshaya-box" style="margin-top: 0.75rem;">
+            <div class="akshaya-header">{{ centre.name }}</div>
+            <div class="akshaya-address">📍 {{ centre.address }} ({{ centre.locality }})</div>
+            <div class="akshaya-meta">
+              <span>📞 {{ centre.contact_phone }}</span>
+              <span>⏰ {{ centre.working_hours }}</span>
+              <span>💼 {{ centre.available_services|join(', ') }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Section 5: Official Legal Disclaimer -->
+    <div class="disclaimer-banner" style="margin-bottom: 2rem;">
+      <strong class="disclaimer-badge">⚖️ {{ t('disclaimer_title') }}:</strong>
+      {{ t('disclaimer_text') }}
+    </div>
+
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      // Auto open print dialog if opened in new tab for PDF download
+      setTimeout(function () {
+        window.print();
+      }, 500);
+    });
+  </script>
+</body>
+</html>

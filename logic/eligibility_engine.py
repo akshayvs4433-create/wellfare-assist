@@ -1,5 +1,5 @@
 """
-WelfareAI - Transparent Eligibility Engine
+WelfareAssist - Transparent Eligibility Engine
 Evaluates household data against simulated demo scheme rules.
 Follows a strict no-guessing policy for incomplete information.
 """

@@ -4,17 +4,24 @@
 <div class="results-container">
 
   <!-- Header Banner -->
-  <div class="results-header">
-    <div class="results-badge-bar">
-      <span>✓</span>
-      <span>{{ t('matching_count_prefix') }} {{ results.summary.eligible_count }} {{ t('schemes_found') }}</span>
+  <div class="results-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <div class="results-badge-bar">
+        <span>✓</span>
+        <span>{{ t('matching_count_prefix') }} {{ results.summary.eligible_count }} {{ t('schemes_found') }}</span>
+      </div>
+      <h1 style="font-size: 1.85rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 0.35rem;">
+        {{ t('results_title') }}
+      </h1>
+      <p style="color: var(--color-text-muted); font-size: 1rem;">
+        {{ t('results_subtitle') }}
+      </p>
     </div>
-    <h1 style="font-size: 1.85rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 0.35rem;">
-      {{ t('results_title') }}
-    </h1>
-    <p style="color: var(--color-text-muted); font-size: 1rem;">
-      {{ t('results_subtitle') }}
-    </p>
+    <div style="margin-top: 0.5rem;">
+      <a href="{{ url_for('download_report') }}" target="_blank" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        📥 {{ 'Download PDF Report' if lang == 'en' else 'PDF റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക' }}
+      </a>
+    </div>
   </div>
 
   <!-- SECTION 1: POTENTIALLY ELIGIBLE SCHEMES -->
@@ -138,6 +145,57 @@
     </section>
   {% endif %}
 
+  <!-- SECTION: NOT CURRENTLY MATCHING SCHEMES -->
+  {% if results.not_eligible %}
+    <section class="card" style="margin-top: 1.5rem; border-left: 4px solid #ef4444;">
+      <h2 class="card-title" style="color: #991b1b; display: flex; align-items: center; gap: 0.5rem;">
+        <span>✕</span> {{ 'Not Currently Matching Schemes' if lang == 'en' else 'നിലവിൽ യോജിക്കാത്ത പദ്ധതികൾ' }} ({{ results.summary.not_eligible_count }})
+      </h2>
+      <p class="card-subtitle">
+        {{ 'The following schemes do not currently match based on the provided household details:' if lang == 'en' else 'താഴെ പറയുന്ന പദ്ധതികൾ നൽകിയ വിവരങ്ങൾ പ്രകാരം നിലവിൽ യോജിക്കുന്നില്ല:' }}
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+        {% for scheme in results.not_eligible %}
+          <div style="border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); padding: 1.25rem; background: #fffaf0;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap;">
+              <div>
+                <span class="scheme-target-badge">{{ scheme.target_group }}</span>
+                <h3 style="font-size: 1.15rem; color: var(--color-text-main); font-weight: 700; margin-top: 0.25rem;">{{ scheme.name }}</h3>
+              </div>
+              <span style="background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 0.78rem;">
+                {{ 'Not Matching' if lang == 'en' else 'യോജിക്കുന്നില്ല' }}
+              </span>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin: 0.5rem 0;">{{ scheme.description }}</p>
+
+            <div style="background: white; border-radius: var(--radius-sm); padding: 0.75rem; border: 1px solid #fed7aa; margin-top: 0.5rem;">
+              <div style="font-weight: 700; font-size: 0.85rem; color: #9a3412; margin-bottom: 0.35rem;">
+                ⚠️ {{ 'Reason why not matching:' if lang == 'en' else 'യോജിക്കാത്തതിനുള്ള കാരണം:' }}
+              </div>
+              <ul style="margin-left: 1.25rem; font-size: 0.9rem; color: var(--color-text-main);">
+                {% for r in scheme.reasons_failed %}
+                  <li>{{ r }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            {% if scheme.required_documents %}
+              <div style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--color-text-muted);">
+                <strong>📄 {{ t('docs_needed') }}:</strong> {{ scheme.required_documents|join(', ') }}
+              </div>
+            {% endif %}
+            {% if scheme.application_location %}
+              <div style="margin-top: 0.35rem; font-size: 0.85rem; color: var(--color-text-muted);">
+                <strong>📍 {{ t('where_to_apply') }}:</strong> {{ scheme.application_location }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
   <!-- SECTION 3: NEAREST SIMULATED AKSHAYA CENTRES -->
   <div class="card">
     <h2 class="card-title">
@@ -167,9 +225,13 @@
   </div>
 
   <!-- Bottom Page Actions -->
-  <div class="form-actions" style="border-top: none;">
+  <div class="form-actions" style="border-top: none; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: space-between;">
     <a href="{{ url_for('review') }}" class="btn btn-secondary">
-      ✏️ {{ t('edit_answers_btn') }}
+      ✏️ {{ 'Back & Correct Answers' if lang == 'en' else 'പുറകിലേക്ക് പോയി ഉത്തരങ്ങൾ തിരുത്തുക' }}
+    </a>
+
+    <a href="{{ url_for('download_report') }}" target="_blank" class="btn btn-secondary">
+      📥 {{ 'Download PDF Report' if lang == 'en' else 'PDF റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക' }}
     </a>
 
     <a href="{{ url_for('reset') }}" class="btn btn-primary">
