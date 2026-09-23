@@ -158,6 +158,37 @@ class TestEligibilityEngine(unittest.TestCase):
         first_scheme = res["eligible"][0]
         self.assertTrue(any(ord(c) >= 0x0D00 and ord(c) <= 0x0D7F for c in first_scheme["name"]))
 
+    def test_all_curated_test_cases(self):
+        cases = load_json_file("test_cases.json")
+        for tc in cases:
+            tcid = tc["id"]
+            res = self.engine.screen_household(tc["input"])
+            if "expected_eligible_min" in tc:
+                self.assertGreaterEqual(
+                    res["summary"]["eligible_count"], tc["expected_eligible_min"],
+                    f"{tcid}: eligible count too low"
+                )
+            if "expected_eligible_ids" in tc:
+                actual_ids = [s["id"] for s in res["eligible"]]
+                for eid in tc["expected_eligible_ids"]:
+                    self.assertIn(eid, actual_ids, f"{tcid}: expected {eid} to be eligible")
+            if "expected_eligible_count" in tc:
+                self.assertEqual(
+                    res["summary"]["eligible_count"], tc["expected_eligible_count"],
+                    f"{tcid}: count mismatch"
+                )
+            if "expected_more_info_min" in tc:
+                self.assertGreaterEqual(
+                    res["summary"]["more_info_count"], tc["expected_more_info_min"],
+                    f"{tcid}: more_info_count too low"
+                )
+            if "expected_more_info_fields" in tc:
+                all_missing = set()
+                for s in res["more_info_needed"]:
+                    all_missing.update(s.get("missing_fields", []))
+                for mf in tc["expected_more_info_fields"]:
+                    self.assertIn(mf, all_missing, f"{tcid}: expected {mf} missing")
+
 
 class TestFlaskApplication(unittest.TestCase):
     """Tests Flask web endpoints, session flows, and JSON API."""
@@ -202,6 +233,17 @@ class TestFlaskApplication(unittest.TestCase):
     def test_language_switch_route(self):
         res = self.client.get("/set-language/ml", follow_redirects=True)
         self.assertEqual(res.status_code, 200)
+
+    def test_open_redirect_prevention(self):
+        res = self.client.get("/set-language/en?next=https://malicious-site.com")
+        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.headers.get("Location"), "/")
+
+    def test_invalid_screening_step(self):
+        res = self.client.get("/screening?step=invalid")
+        self.assertEqual(res.status_code, 200)
+        res_overflow = self.client.get("/screening?step=999")
+        self.assertEqual(res_overflow.status_code, 200)
 
 
 class TestDatabaseAudit(unittest.TestCase):

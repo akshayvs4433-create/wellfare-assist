@@ -58,12 +58,21 @@ def set_language(lang):
     if lang in ("en", "ml"):
         session["lang"] = lang
     next_url = request.args.get("next") or request.referrer or url_for("index")
+    # Ensure next_url is a relative internal path to prevent open redirects
+    if not next_url.startswith("/") or next_url.startswith("//"):
+        next_url = url_for("index")
     return redirect(next_url)
 
 
 @app.route("/screening")
 def screening():
-    step = int(request.args.get("step", 1))
+    try:
+        step = int(request.args.get("step", 1))
+    except (ValueError, TypeError):
+        step = 1
+    if step < 1 or step > 4:
+        step = 1
+
     profile_id = request.args.get("profile")
 
     # If demo profile requested, preload it into session
@@ -71,7 +80,7 @@ def screening():
         profiles = load_json_file("household_profiles.json")
         matched = next((p for p in profiles if p["id"] == profile_id), None)
         if matched:
-            session["household"] = matched["data"]
+            session["household"] = dict(matched["data"])
             session["demo_profile_id"] = profile_id
 
     household = session.get("household", {})
@@ -82,6 +91,8 @@ def screening():
 def save_step():
     """Saves partial step data and moves to next step or review."""
     household = session.get("household", {})
+    if not isinstance(household, dict):
+        household = {}
 
     # Capture any submitted form fields
     for field in ["occupation", "annual_income", "age", "family_size", "gender", "district", "has_disability"]:
@@ -93,8 +104,12 @@ def save_step():
                 household[field] = None
 
     session["household"] = household
+    session.modified = True
     next_action = request.form.get("action", "next")
-    current_step = int(request.form.get("current_step", 1))
+    try:
+        current_step = int(request.form.get("current_step", 1))
+    except (ValueError, TypeError):
+        current_step = 1
 
     if next_action == "back":
         prev_step = max(1, current_step - 1)
@@ -188,4 +203,12 @@ def server_error(e):
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    try:
+        app.run(host="127.0.0.1", port=port, debug=True)
+    except OSError as e:
+        if port == 5000 and "Address already in use" in str(e):
+            print(f"\n[!] Port 5000 is occupied (e.g. macOS AirPlay Receiver). Launching on http://127.0.0.1:5001 instead...\n")
+            app.run(host="127.0.0.1", port=5001, debug=True)
+        else:
+            raise

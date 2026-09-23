@@ -22,10 +22,10 @@
       <div class="header-controls">
         <!-- Language Switcher -->
         <div class="lang-switch" role="group" aria-label="Language selection">
-          <a href="{{ url_for('set_language', lang='en', next=request.path) }}"
+          <a href="{{ url_for('set_language', lang='en', next=(request.full_path.rstrip('?') if request.query_string else request.path)) }}"
              class="lang-link {% if lang == 'en' %}active{% endif %}"
              lang="en">English</a>
-          <a href="{{ url_for('set_language', lang='ml', next=request.path) }}"
+          <a href="{{ url_for('set_language', lang='ml', next=(request.full_path.rstrip('?') if request.query_string else request.path)) }}"
              class="lang-link {% if lang == 'ml' %}active{% endif %}"
              lang="ml">മലയാളം</a>
         </div>

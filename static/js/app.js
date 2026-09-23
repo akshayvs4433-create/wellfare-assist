@@ -58,8 +58,9 @@ function initVoiceInput() {
 
         // If field is number/income/age, parse digits
         if (targetInput.type === "number" || targetInputId.includes("income") || targetInputId.includes("age") || targetInputId.includes("family")) {
-          // Remove commas and spaces
-          const numMatch = cleanText.replace(/,/g, "").match(/\d+/);
+          // Handle spoken numbers with spaces or commas (e.g. "1 50 000", "1,50,000")
+          const digitCandidate = cleanText.replace(/[,\s]/g, "");
+          const numMatch = digitCandidate.match(/\d+/);
           if (numMatch) {
             targetInput.value = numMatch[0];
           } else {
@@ -136,29 +137,29 @@ function initDemoModal() {
  * Radio Cards Selection Styling
  */
 function initRadioCards() {
-  const radioCards = document.querySelectorAll(".radio-card");
-  radioCards.forEach(card => {
-    const radio = card.querySelector("input[type='radio']");
-    if (!radio) return;
+  const radios = document.querySelectorAll(".radio-card input[type='radio']");
 
-    if (radio.checked) {
-      card.classList.add("selected");
+  function updateRadioGroup(groupName) {
+    document.querySelectorAll(`input[type='radio'][name="${groupName}"]`).forEach(input => {
+      const parentCard = input.closest(".radio-card");
+      if (parentCard) {
+        if (input.checked) {
+          parentCard.classList.add("selected");
+        } else {
+          parentCard.classList.remove("selected");
+        }
+      }
+    });
+  }
+
+  radios.forEach(radio => {
+    const parentCard = radio.closest(".radio-card");
+    if (radio.checked && parentCard) {
+      parentCard.classList.add("selected");
     }
 
-    card.addEventListener("click", function (e) {
-      // If clicking the card itself (not directly on input)
-      if (e.target !== radio) {
-        radio.checked = true;
-      }
-
-      // Deselect siblings
-      const groupName = radio.name;
-      document.querySelectorAll(`input[name="${groupName}"]`).forEach(sibling => {
-        const parent = sibling.closest(".radio-card");
-        if (parent) parent.classList.remove("selected");
-      });
-
-      card.classList.add("selected");
+    radio.addEventListener("change", function () {
+      updateRadioGroup(this.name);
     });
   });
 }
