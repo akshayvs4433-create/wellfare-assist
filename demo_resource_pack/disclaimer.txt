@@ -1,0 +1,23 @@
+================================================================================
+WELFAREAI - DEMO PROTOTYPE DISCLAIMER
+================================================================================
+
+ENGLISH:
+"Potential eligibility is only a preliminary screening result based on the
+information provided and the simulated demo resource pack. It does not
+guarantee approval or benefit. Final eligibility is determined solely by the
+concerned government authority, department officer, or Akshaya Centre upon
+verification of original documents."
+
+MALAYALAM:
+"ലഭ്യമായ വിവരങ്ങളും ഡെമോ നിബന്ധനകളും അടിസ്ഥാനമാക്കിയുള്ള ഒരു പ്രാഥമിക
+പരിശോധന മാത്രമാണിത്. ഇതിലൂടെ ആനുകൂല്യം ലഭിക്കുമെന്ന് ഉറപ്പ് നൽകുന്നില്ല.
+അന്തിമ തീരുമാനം ബന്ധപ്പെട്ട സർക്കാർ ഉദ്യോഗസ്ഥരുടേതായിരിക്കും."
+
+NOTE ON DEMO DATA:
+The schemes, Akshaya centres, and criteria loaded in this prototype are
+simulated demo data created specifically for the college hackathon demonstration.
+The system is designed so this demo pack can be directly replaced with the
+organiser's verified official resource pack.
+================================================================================
+

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="review-container">
+
+  <div class="card">
+    <h1 class="card-title">{{ t('check_answers_title') }}</h1>
+    <p class="card-subtitle">{{ t('check_answers_intro') }}</p>
+
+    <div class="review-list">
+
+      <!-- Occupation -->
+      <div class="review-item">
+        <div>
+          <div class="review-item-label">{{ t('occupation') }}</div>
+          <div class="review-item-value">
+            {% if household.get('occupation') == 'plantation' %}
+              🍃 {{ t('occ_plantation') }}
+            {% elif household.get('occupation') == 'fisher' %}
+              🐟 {{ t('occ_fisher') }}
+            {% elif household.get('occupation') %}
+              🛠️ {{ household.get('occupation')|capitalize }}
+            {% else %}
+              <span class="not-provided">{{ t('not_provided') }}</span>
+            {% endif %}
+          </div>
+        </div>
+        <a href="{{ url_for('screening', step=1) }}" class="btn-edit-link">{{ t('edit') }}</a>
+      </div>
+
+      <!-- Annual Income -->
+      <div class="review-item">
+        <div>
+          <div class="review-item-label">{{ t('annual_income') }}</div>
+          <div class="review-item-value">
+            {% if household.get('annual_income') %}
+              ₹{{ household.get('annual_income') }}
+            {% else %}
+              <span class="not-provided">{{ t('not_provided') }} ({{ 'Will trigger missing info prompt' if lang == 'en' else 'വിട്ടുപോയ വിവരമായി കണക്കാക്കും' }})</span>
+            {% endif %}
+          </div>
+        </div>
+        <a href="{{ url_for('screening', step=2) }}" class="btn-edit-link">{{ t('edit') }}</a>
+      </div>
+
+      <!-- Age & Family Size -->
+      <div class="review-item">
+        <div>
+          <div class="review-item-label">{{ t('age') }} &amp; {{ t('family_size') }}</div>
+          <div class="review-item-value">
+            {{ t('age') }}: {{ household.get('age') or t('not_provided') }} • 
+            {{ t('family_size') }}: {{ household.get('family_size') or '4' }} • 
+            {{ t('gender') }}: {{ (household.get('gender') or 'Male')|capitalize }}
+          </div>
+        </div>
+        <a href="{{ url_for('screening', step=3) }}" class="btn-edit-link">{{ t('edit') }}</a>
+      </div>
+
+      <!-- District & Disability -->
+      <div class="review-item">
+        <div>
+          <div class="review-item-label">{{ t('district') }} &amp; {{ t('disability') }}</div>
+          <div class="review-item-value">
+            {{ household.get('district') or 'Ernakulam' }} • 
+            {% if household.get('has_disability') in ['yes', True] %}
+              ♿ {{ t('disability_yes') }}
+            {% else %}
+              {{ t('disability_no') }}
+            {% endif %}
+          </div>
+        </div>
+        <a href="{{ url_for('screening', step=4) }}" class="btn-edit-link">{{ t('edit') }}</a>
+      </div>
+
+    </div>
+
+    <!-- Submission Form -->
+    <form action="{{ url_for('screen') }}" method="POST">
+      <div class="form-actions" style="margin-top: 1rem; border-top: none;">
+        <a href="{{ url_for('screening', step=4) }}" class="btn btn-secondary">
+          &larr; {{ t('back') }}
+        </a>
+
+        <button type="submit" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.85rem 2rem;">
+          {{ t('check_schemes') }} &rarr;
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}
+

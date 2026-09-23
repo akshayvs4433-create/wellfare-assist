@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="screening-container">
+
+  <!-- Progress Bar (1 ─── 2 ─── 3 ─── 4) -->
+  <div class="wizard-progress" role="progressbar" aria-valuenow="{{ step }}" aria-valuemin="1" aria-valuemax="4">
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step {% if step == 1 %}active{% elif step > 1 %}completed{% endif %}">
+      <div class="wizard-node">1</div>
+      <span class="wizard-label">{{ t('occupation') }}</span>
+    </div>
+
+    <div class="wizard-step {% if step == 2 %}active{% elif step > 2 %}completed{% endif %}">
+      <div class="wizard-node">2</div>
+      <span class="wizard-label">{{ 'Income' if lang == 'en' else 'വരുമാനം' }}</span>
+    </div>
+
+    <div class="wizard-step {% if step == 3 %}active{% elif step > 3 %}completed{% endif %}">
+      <div class="wizard-node">3</div>
+      <span class="wizard-label">{{ 'Family' if lang == 'en' else 'കുടുംബം' }}</span>
+    </div>
+
+    <div class="wizard-step {% if step == 4 %}active{% elif step > 4 %}completed{% endif %}">
+      <div class="wizard-node">4</div>
+      <span class="wizard-label">{{ 'District' if lang == 'en' else 'ജില്ല' }}</span>
+    </div>
+  </div>
+
+  <!-- Form Card -->
+  <div class="card">
+    <form action="{{ url_for('save_step') }}" method="POST" id="stepForm">
+      <input type="hidden" name="current_step" value="{{ step }}">
+
+      <!-- STEP 1: OCCUPATION -->
+      {% if step == 1 %}
+        <div class="step-header">
+          <span style="font-size: 0.85rem; color: var(--color-primary); font-weight: 700; text-transform: uppercase;">
+            {{ t('step') }} 1 {{ t('of') }} 4
+          </span>
+          <h2 class="card-title">{{ t('step1_title') }}</h2>
+          <p class="card-subtitle">{{ t('step1_question') }}</p>
+        </div>
+
+        <div class="form-group">
+          <div class="radio-options">
+            <label class="radio-card {% if household.get('occupation') == 'plantation' %}selected{% endif %}">
+              <input type="radio" name="occupation" value="plantation" {% if household.get('occupation') == 'plantation' %}checked{% endif %} required>
+              <div class="radio-card-content">
+                <div class="radio-card-title">🍃 {{ t('occ_plantation') }}</div>
+                <div class="radio-card-desc">{{ 'Tea, coffee, rubber, cardamom estates' if lang == 'en' else 'തേയില, കാപ്പി, റബ്ബർ, ഏലം തോട്ടങ്ങളിൽ ജോലി ചെയ്യുന്നവർ' }}</div>
+              </div>
+            </label>
+
+            <label class="radio-card {% if household.get('occupation') == 'fisher' %}selected{% endif %}">
+              <input type="radio" name="occupation" value="fisher" {% if household.get('occupation') == 'fisher' %}checked{% endif %}>
+              <div class="radio-card-content">
+                <div class="radio-card-title">🐟 {{ t('occ_fisher') }}</div>
+                <div class="radio-card-desc">{{ 'Marine, inland, fish vending, and net-mending labourers' if lang == 'en' else 'കടൽ, ഉൾനാടൻ മത്സ്യബന്ധനം, വിൽപ്പന, അനുബന്ധ തൊഴിലാളികൾ' }}</div>
+              </div>
+            </label>
+
+            <label class="radio-card {% if household.get('occupation') == 'other' %}selected{% endif %}">
+              <input type="radio" name="occupation" value="other" {% if household.get('occupation') == 'other' %}checked{% endif %}>
+              <div class="radio-card-content">
+                <div class="radio-card-title">🛠️ {{ t('occ_other') }}</div>
+                <div class="radio-card-desc">{{ 'General daily-wage, agricultural, or other unorganized workers' if lang == 'en' else 'മറ്റ് ദിവസക്കൂലി, കൃഷി അല്ലെങ്കിൽ അസംഘടിത തൊഴിലാളികൾ' }}</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+      <!-- STEP 2: ANNUAL INCOME -->
+      {% elif step == 2 %}
+        <div class="step-header">
+          <span style="font-size: 0.85rem; color: var(--color-primary); font-weight: 700; text-transform: uppercase;">
+            {{ t('step') }} 2 {{ t('of') }} 4
+          </span>
+          <h2 class="card-title">{{ t('step2_title') }}</h2>
+          <p class="card-subtitle">{{ t('step2_question') }}</p>
+        </div>
+
+        <div class="form-group">
+          <label for="annual_income" class="form-label">{{ t('annual_income') }}</label>
+          <div class="input-with-voice">
+            <span style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-muted);">₹</span>
+            <input type="number"
+                   id="annual_income"
+                   name="annual_income"
+                   class="form-control"
+                   placeholder="e.g. 150000"
+                   min="0"
+                   step="5000"
+                   value="{{ household.get('annual_income') or '' }}"
+                   aria-describedby="incomeHelper">
+            <button type="button" class="btn-voice" data-target="annual_income" title="{{ t('speak_tooltip') }}">
+              🎤 <span>{{ 'Speak' if lang == 'en' else 'സംസാരിക്കുക' }}</span>
+            </button>
+          </div>
+          <div id="incomeHelper" class="form-helper">{{ t('income_helper') }}</div>
+          <div class="form-helper" style="color: var(--color-accent-amber); margin-top: 0.5rem;">
+            ℹ️ {{ t('leave_blank_note') }}
+          </div>
+        </div>
+
+      <!-- STEP 3: AGE & FAMILY SIZE -->
+      {% elif step == 3 %}
+        <div class="step-header">
+          <span style="font-size: 0.85rem; color: var(--color-primary); font-weight: 700; text-transform: uppercase;">
+            {{ t('step') }} 3 {{ t('of') }} 4
+          </span>
+          <h2 class="card-title">{{ t('step3_title') }}</h2>
+          <p class="card-subtitle">{{ 'Provide the applicant age and number of dependents in your household.' if lang == 'en' else 'അപേക്ഷകന്റെ പ്രായവും കുടുംബത്തിലെ അംഗങ്ങളുടെ എണ്ണവും നൽകുക.' }}</p>
+        </div>
+
+        <div class="form-group">
+          <label for="age" class="form-label">{{ t('applicant_age') }}</label>
+          <div class="input-with-voice">
+            <input type="number"
+                   id="age"
+                   name="age"
+                   class="form-control"
+                   placeholder="e.g. 42"
+                   min="14"
+                   max="105"
+                   value="{{ household.get('age') or '' }}">
+            <button type="button" class="btn-voice" data-target="age" title="{{ t('speak_tooltip') }}">
+              🎤 <span>{{ 'Speak' if lang == 'en' else 'സംസാരിക്കുക' }}</span>
+            </button>
+          </div>
+          <div class="form-helper">{{ t('age_helper') }}</div>
+        </div>
+
+        <div class="form-group">
+          <label for="family_size" class="form-label">{{ t('family_size') }}</label>
+          <input type="number"
+                 id="family_size"
+                 name="family_size"
+                 class="form-control"
+                 placeholder="e.g. 4"
+                 min="1"
+                 max="20"
+                 value="{{ household.get('family_size') or '4' }}">
+          <div class="form-helper">{{ 'Total individuals currently residing and sharing meals together.' if lang == 'en' else 'ഒരുമിച്ച് താമസിക്കുന്ന ആകെ കുടുംബാംഗങ്ങളുടെ എണ്ണം.' }}</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">{{ t('gender_label') }}</label>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="radio" name="gender" value="female" {% if household.get('gender') == 'female' %}checked{% endif %}>
+              {{ t('gender_female') }}
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="radio" name="gender" value="male" {% if household.get('gender') == 'male' or not household.get('gender') %}checked{% endif %}>
+              {{ t('gender_male') }}
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="radio" name="gender" value="other" {% if household.get('gender') == 'other' %}checked{% endif %}>
+              {{ t('gender_other') }}
+            </label>
+          </div>
+        </div>
+
+      <!-- STEP 4: DISTRICT & DISABILITY -->
+      {% elif step == 4 %}
+        <div class="step-header">
+          <span style="font-size: 0.85rem; color: var(--color-primary); font-weight: 700; text-transform: uppercase;">
+            {{ t('step') }} 4 {{ t('of') }} 4
+          </span>
+          <h2 class="card-title">{{ t('step4_title') }}</h2>
+          <p class="card-subtitle">{{ 'Location and special welfare considerations.' if lang == 'en' else 'വാസസ്ഥലവും മറ്റ് പ്രത്യേക ക്ഷേമ വിവരങ്ങളും.' }}</p>
+        </div>
+
+        <div class="form-group">
+          <label for="district" class="form-label">{{ t('district_label') }}</label>
+          <select id="district" name="district" class="form-control" required>
+            <option value="">-- {{ 'Select District' if lang == 'en' else 'ജില്ല തിരഞ്ഞെടുക്കുക' }} --</option>
+            {% for d in districts %}
+              <option value="{{ d }}" {% if household.get('district') == d or (not household.get('district') and d == 'Ernakulam') %}selected{% endif %}>
+                {{ d }}
+              </option>
+            {% endfor %}
+          </select>
+          <div class="form-helper">{{ 'Helps locate nearest Akshaya Centre and district-specific benefits.' if lang == 'en' else 'അടുത്തുള്ള അക്ഷയ കേന്ദ്രം കണ്ടെത്താനും പ്രാദേശിക പദ്ധതികൾ പരിശോധിക്കാനും.' }}</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">{{ t('disability_label') }}</label>
+          <div class="radio-options">
+            <label class="radio-card {% if household.get('has_disability') in ['yes', True] %}selected{% endif %}">
+              <input type="radio" name="has_disability" value="yes" {% if household.get('has_disability') in ['yes', True] %}checked{% endif %}>
+              <div class="radio-card-content">
+                <div class="radio-card-title">♿ {{ t('disability_yes') }}</div>
+              </div>
+            </label>
+
+            <label class="radio-card {% if household.get('has_disability') in ['no', False] or not household.get('has_disability') %}selected{% endif %}">
+              <input type="radio" name="has_disability" value="no" {% if household.get('has_disability') in ['no', False] or not household.get('has_disability') %}checked{% endif %}>
+              <div class="radio-card-content">
+                <div class="radio-card-title">{{ t('disability_no') }}</div>
+              </div>
+            </label>
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Wizard Navigation Actions -->
+      <div class="form-actions">
+        {% if step > 1 %}
+          <button type="submit" name="action" value="back" class="btn btn-secondary">
+            &larr; {{ t('back') }}
+          </button>
+        {% else %}
+          <button type="button" class="btn btn-secondary btn-open-demo">
+            {{ t('try_demo') }}
+          </button>
+        {% endif %}
+
+        {% if step < 4 %}
+          <button type="submit" name="action" value="next" class="btn btn-primary">
+            {{ t('next') }} &rarr;
+          </button>
+        {% else %}
+          <button type="submit" name="action" value="review" class="btn btn-primary">
+            {{ t('review_answers') }} &rarr;
+          </button>
+        {% endif %}
+      </div>
+
+    </form>
+  </div>
+
+</div>
+{% endblock %}
+

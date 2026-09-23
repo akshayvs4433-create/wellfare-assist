@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ t('app_name') }} - {{ t('hero_subtitle') }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <a href="{{ url_for('index') }}" class="brand-title">
+          {{ t('app_name') }}
+          <span class="brand-badge">PROTOTYPE</span>
+        </a>
+        <div class="brand-tagline">{{ t('tagline') }}</div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Language Switcher -->
+        <div class="lang-switch" role="group" aria-label="Language selection">
+          <a href="{{ url_for('set_language', lang='en', next=request.path) }}"
+             class="lang-link {% if lang == 'en' %}active{% endif %}"
+             lang="en">English</a>
+          <a href="{{ url_for('set_language', lang='ml', next=request.path) }}"
+             class="lang-link {% if lang == 'ml' %}active{% endif %}"
+             lang="ml">മലയാളം</a>
+        </div>
+
+        <a href="{{ url_for('reset') }}" class="btn-header-reset" title="Start over">
+          {{ t('start_over') }}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Demo Household Selector Modal -->
+  <div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <div class="demo-modal-dialog">
+      <div class="demo-modal-header">
+        <h2 class="demo-modal-title" id="demoModalTitle">{{ t('try_demo') }}</h2>
+        <button type="button" class="btn-close-modal" aria-label="{{ t('close') }}">&times;</button>
+      </div>
+      <p class="card-subtitle">{{ t('select_demo_prompt') }}</p>
+
+      <div class="demo-profiles-list">
+        <a href="{{ url_for('screening', profile='DEMO-HH-01') }}" class="demo-card">
+          <div>
+            <div class="demo-card-title">🐟 {{ 'Coastal Fishing Family' if lang == 'en' else 'തീരദേശ മത്സ്യത്തൊഴിലാളി കുടുംബം' }}</div>
+            <div class="demo-card-desc">Ernakulam • Fisher • Income ₹1,50,000 • Age 42 • Family 4</div>
+          </div>
+          <span class="btn btn-sm btn-outline-primary">{{ t('use_this_profile') }}</span>
+        </a>
+
+        <a href="{{ url_for('screening', profile='DEMO-HH-02') }}" class="demo-card">
+          <div>
+            <div class="demo-card-title">🍃 {{ 'High-Range Tea Plantation Family' if lang == 'en' else 'മലയോര തേയില തോട്ടം തൊഴിലാളി' }}</div>
+            <div class="demo-card-desc">Wayanad • Plantation Worker • Income ₹1,20,000 • Age 35 (Female) • Family 3</div>
+          </div>
+          <span class="btn btn-sm btn-outline-primary">{{ t('use_this_profile') }}</span>
+        </a>
+
+        <a href="{{ url_for('screening', profile='DEMO-HH-03') }}" class="demo-card">
+          <div>
+            <div class="demo-card-title">🚤 {{ 'Fisher with Above-Limit Income' if lang == 'en' else 'ഉയർന്ന വരുമാനമുള്ള മത്സ്യത്തൊഴിലാളി' }}</div>
+            <div class="demo-card-desc">Alappuzha • Fisher • Income ₹3,50,000 (Demonstrates rule threshold disqualification)</div>
+          </div>
+          <span class="btn btn-sm btn-outline-primary">{{ t('use_this_profile') }}</span>
+        </a>
+
+        <a href="{{ url_for('screening', profile='DEMO-HH-04') }}" class="demo-card">
+          <div>
+            <div class="demo-card-title">⚠️ {{ 'Incomplete Household (Missing Income)' if lang == 'en' else 'വരുമാനം രേഖപ്പെടുത്താത്ത കുടുംബം' }}</div>
+            <div class="demo-card-desc">Idukki • Plantation Worker • No Income Provided (Demonstrates strict no-guessing policy)</div>
+          </div>
+          <span class="btn btn-sm btn-outline-primary">{{ t('use_this_profile') }}</span>
+        </a>
+
+        <a href="{{ url_for('screening', profile='DEMO-HH-05') }}" class="demo-card">
+          <div>
+            <div class="demo-card-title">♿ {{ 'Senior Citizen with Disability' if lang == 'en' else 'ഭിന്നശേഷിയുള്ള മുതിർന്ന പൗരൻ' }}</div>
+            <div class="demo-card-desc">Kollam • Age 63 • Income ₹95,000 • Certified Disability</div>
+          </div>
+          <span class="btn btn-sm btn-outline-primary">{{ t('use_this_profile') }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <span class="footer-demo-pill">SIMULATED DEMO RESOURCE PACK</span>
+      </div>
+      <p>{{ t('demo_notice') }}</p>
+      <p style="font-size: 0.8rem; color: #9ca3af;">{{ t('privacy_note') }}</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

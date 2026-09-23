@@ -1,0 +1,705 @@
+[
+  {
+    "id": "DEMO-FSH-001",
+    "name": {
+      "en": "Demo Fisher Family Monsoon Livelihood Grant",
+      "ml": "ഡെമോ മത്സ്യത്തൊഴിലാളി മൺസൂൺ ഉപജീവന ഗ്രാന്റ്"
+    },
+    "target_group": {
+      "en": "Traditional Fishing Households",
+      "ml": "പാരമ്പര്യ മത്സ്യത്തൊഴിലാളി കുടുംബങ്ങൾ"
+    },
+    "description": {
+      "en": "Simulated seasonal income sustenance grant for registered traditional fishing families during the monsoon trawling ban period.",
+      "ml": "ട്രോളിംഗ് നിരോധന സമയത്ത് രജിസ്റ്റർ ചെയ്ത മത്സ്യത്തൊഴിലാളി കുടുംബങ്ങൾക്ക് നൽകുന്ന സാങ്കൽപ്പിക വരുമാന സഹായം."
+    },
+    "eligibility_rules": {
+      "occupation": "fisher",
+      "max_income": 180000,
+      "min_age": 18,
+      "max_age": 70,
+      "min_family_size": 1,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card of Applicant",
+        "Fishermen Welfare Board Registration / Fisher ID",
+        "Income Certificate issued by Village Officer (Below ₹1,80,000)"
+      ],
+      "ml": [
+        "അപേക്ഷകന്റെ ആധാർ കാർഡ്",
+        "മത്സ്യത്തൊഴിലാളി ക്ഷേമനിധി ബോർഡ് രജിസ്ട്രേഷൻ / തിരിച്ചറിയൽ കാർഡ്",
+        "വില്ലേജ് ഓഫീസർ നൽകിയ വരുമാന സർട്ടിഫിക്കറ്റ് (₹1,80,000-ൽ താഴെ)"
+      ]
+    },
+    "application_location": {
+      "en": "Akshaya Centre or Fisheries Sub-Inspector Office",
+      "ml": "അക്ഷയ കേന്ദ്രം അല്ലെങ്കിൽ ഫിഷറീസ് സബ് ഇൻസ്പെക്ടർ ഓഫീസ്"
+    },
+    "application_method": {
+      "en": "Submit physical application or apply online via Akshaya Centre before the onset of monsoon.",
+      "ml": "മഴക്കാലം ആരംഭിക്കുന്നതിന് മുമ്പ് അക്ഷയ കേന്ദ്രം വഴിയോ നേരിട്ടോ അപേക്ഷ സമർപ്പിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Gather Aadhaar card and Fishermen Welfare Board passbook.",
+        "Obtain a fresh annual income certificate from your local Village Office.",
+        "Visit the nearest Akshaya Centre or Fisheries Office to submit the screening copy."
+      ],
+      "ml": [
+        "ആധാർ കാർഡും മത്സ്യത്തൊഴിലാളി ക്ഷേമനിധി പാസ്ബുക്കും തയ്യാറാക്കുക.",
+        "വില്ലേജ് ഓഫീസിൽ നിന്ന് പുതിയ വരുമാന സർട്ടിഫിക്കറ്റ് വാങ്ങുക.",
+        "അടുത്തുള്ള അക്ഷയ കേന്ദ്രം അല്ലെങ്കിൽ ഫിഷറീസ് ഓഫീസ് സന്ദർശിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-FSH-002",
+    "name": {
+      "en": "Demo Coastal Fisher Housing Sanitation Aid",
+      "ml": "ഡെമോ തീരദേശ ഭവന ശുചിത്വ സഹായ പദ്ധതി"
+    },
+    "target_group": {
+      "en": "Coastal Fishing Households",
+      "ml": "തീരദേശ മത്സ്യത്തൊഴിലാളി കുടുംബങ്ങൾ"
+    },
+    "description": {
+      "en": "Simulated grant for construction or renovation of household sanitation and safe drinking water units in coastal hamlets.",
+      "ml": "തീരദേശ മേഖലകളിലെ വീടുകളിൽ ശൗചാലയങ്ങളും ശുദ്ധജല സൗകര്യങ്ങളും നിർമ്മിക്കുന്നതിനുള്ള സാങ്കൽപ്പിക സഹായം."
+    },
+    "eligibility_rules": {
+      "occupation": "fisher",
+      "max_income": 200000,
+      "min_age": 21,
+      "max_age": null,
+      "min_family_size": 2,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Ration Card (Non-Priority / Priority / BPL)",
+        "Proof of coastal residence or local body tax receipt",
+        "Income Certificate"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "റേഷൻ കാർഡ്",
+        "തീരദേശ വാസസ്ഥല രേഖ അല്ലെങ്കിൽ പഞ്ചായത്ത് നികുതി രസീത്",
+        "വരുമാന സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    "application_location": {
+      "en": "Local Grama Panchayat or Coastal Akshaya Centre",
+      "ml": "ഗ്രാമപഞ്ചായത്ത് അല്ലെങ്കിൽ തീരദേശ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit application through local body engineering wing or Akshaya Centre.",
+      "ml": "തദ്ദേശ സ്വയംഭരണ സ്ഥാപനം വഴിയോ അക്ഷയ കേന്ദ്രം വഴിയോ അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Verify your household ration card status.",
+        "Obtain property tax receipt or proof of house ownership from local Panchayat.",
+        "Submit the application at your local Akshaya Centre."
+      ],
+      "ml": [
+        "റേഷൻ കാർഡ് പരിശോധിക്കുക.",
+        "പഞ്ചായത്തിൽ നിന്ന് ഉടമസ്ഥാവകാശ രേഖ അല്ലെങ്കിൽ നികുതി രസീത് വാങ്ങുക.",
+        "സമീപത്തെ അക്ഷയ കേന്ദ്രത്തിൽ അപേക്ഷ സമർപ്പിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-FSH-003",
+    "name": {
+      "en": "Demo Fisher Children Higher Education Scholarship",
+      "ml": "ഡെമോ മത്സ്യത്തൊഴിലാളി മക്കളുടെ ഉന്നതവിദ്യാഭ്യാസ സ്കോളർഷിപ്പ്"
+    },
+    "target_group": {
+      "en": "Children of Fishing Families",
+      "ml": "മത്സ്യത്തൊഴിലാളികളുടെ മക്കൾ"
+    },
+    "description": {
+      "en": "Simulated annual educational stipend for children of active fishers enrolled in degree, diploma, or vocational courses.",
+      "ml": "ഡിഗ്രി, ഡിപ്ലോമ അല്ലെങ്കിൽ തൊഴിലധിഷ്ഠിത കോഴ്സുകൾ പഠിക്കുന്ന മത്സ്യത്തൊഴിലാളികളുടെ മക്കൾക്ക് വാർഷിക പഠന സഹായം."
+    },
+    "eligibility_rules": {
+      "occupation": "fisher",
+      "max_income": 250000,
+      "min_age": 16,
+      "max_age": 30,
+      "min_family_size": 2,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Student Aadhaar Card",
+        "Parent Fisher ID / Welfare Board Membership Card",
+        "College / Institution Enrollment Certificate",
+        "Income Certificate"
+      ],
+      "ml": [
+        "വിദ്യാർത്ഥിയുടെ ആധാർ കാർഡ്",
+        "രക്ഷിതാവിന്റെ മത്സ്യത്തൊഴിലാളി ക്ഷേമനിധി കാർഡ്",
+        "കോളേജ് / സ്ഥാപനത്തിൽ നിന്നുള്ള സ്റ്റഡി സർട്ടിഫിക്കറ്റ്",
+        "വരുമാന സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    "application_location": {
+      "en": "Fisheries Department Portal or Akshaya Centre",
+      "ml": "ഫിഷറീസ് വകുപ്പ് പോർട്ടൽ അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Apply through Akshaya Centre with bonafide certificate from educational institution.",
+      "ml": "വിദ്യാഭ്യാസ സ്ഥാപനത്തിൽ നിന്നുള്ള രേഖ സഹിതം അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Collect enrollment certificate from current college or institute.",
+        "Make sure parent's fishery welfare board membership is active.",
+        "Submit online at Akshaya Centre before the academic cut-off date."
+      ],
+      "ml": [
+        "പഠിക്കുന്ന കോളേജിൽ നിന്ന് സർട്ടിഫിക്കറ്റ് വാങ്ങുക.",
+        "രക്ഷിതാവിന്റെ ക്ഷേമനിധി ബോർഡ് അംഗത്വം പരിശോധിക്കുക.",
+        "അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷ ഓൺലൈനായി സമർപ്പിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-FSH-004",
+    "name": {
+      "en": "Demo Fisherwomen Micro-Enterprise Equipment Aid",
+      "ml": "ഡെമോ മത്സ്യത്തൊഴിലാളി വനിതാ സ്വയംതൊഴിൽ ഉപകരണ സഹായം"
+    },
+    "target_group": {
+      "en": "Women Fish Venders & Allied Workers",
+      "ml": "മത്സ്യവിൽപ്പന നടത്തുന്ന വനിതകൾ"
+    },
+    "description": {
+      "en": "Simulated provision of insulated ice-boxes, digital weighing scales, and solar drying units for female fish workers.",
+      "ml": "വനിതാ മത്സ്യത്തൊഴിലാളികൾക്ക് ഐസ് ബോക്സ്, ഇലക്ട്രോണിക് ത്രാസ് എന്നിവ ലഭ്യമാക്കുന്നതിനുള്ള സാങ്കൽപ്പിക പദ്ധതി."
+    },
+    "eligibility_rules": {
+      "occupation": "fisher",
+      "max_income": 180000,
+      "min_age": 18,
+      "max_age": 60,
+      "min_family_size": 1,
+      "gender": "female",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Women Fish Vender / Allied Worker Registration Certificate",
+        "Income Certificate from Village Officer"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "വനിതാ മത്സ്യത്തൊഴിലാളി രജിസ്ട്രേഷൻ സർട്ടിഫിക്കറ്റ്",
+        "വില്ലേജ് ഓഫീസിൽ നിന്നുള്ള വരുമാന സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    "application_location": {
+      "en": "Matsyafed District Office or Akshaya Centre",
+      "ml": "മത്സ്യഫെഡ് ജില്ലാ ഓഫീസ് അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit application form along with vendor identity card at Akshaya Centre.",
+      "ml": "തിരിച്ചറിയൽ കാർഡ് സഹിതം അക്ഷയ കേന്ദ്രത്തിൽ അപേക്ഷ നൽകുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Verify registration with the women fish workers society or Matsyafed.",
+        "Obtain family income certificate.",
+        "Visit the nearest Akshaya Centre to register for the next equipment disbursement cycle."
+      ],
+      "ml": [
+        "വനിതാ മത്സ്യ സംഘത്തിലെ അംഗത്വം ഉറപ്പുവരുത്തുക.",
+        "കുടുംബ വരുമാന സർട്ടിഫിക്കറ്റ് വാങ്ങുക.",
+        "അടുത്ത ഉപകരണ വിതരണത്തിനായി അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-FSH-005",
+    "name": {
+      "en": "Demo Traditional Craftsman Safety Gear Subsidy",
+      "ml": "ഡെമോ പരമ്പരാഗത മത്സ്യത്തൊഴിലാളി സുരക്ഷാ ഉപകരണ സബ്സിഡി"
+    },
+    "target_group": {
+      "en": "Deep-Sea and Inshore Canoe Fishers",
+      "ml": "പരമ്പരാഗത വള്ളങ്ങളിൽ മത്സ്യബന്ധനം നടത്തുന്നവർ"
+    },
+    "description": {
+      "en": "Simulated subsidy for life-jackets, GPS tracking beacons, and marine distress transponders.",
+      "ml": "ലൈഫ് ജാക്കറ്റ്, ജി.പി.എസ്, സുരക്ഷാ ഉപകരണങ്ങൾ എന്നിവ വാങ്ങുന്നതിനുള്ള സാങ്കൽപ്പിക ധനസഹായം."
+    },
+    "eligibility_rules": {
+      "occupation": "fisher",
+      "max_income": 220000,
+      "min_age": 20,
+      "max_age": 65,
+      "min_family_size": 1,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Vessel Registration / Fishing Craft License",
+        "Bio-metric Marine Identity Card"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "ബോട്ട്/വള്ളം രജിസ്ട്രേഷൻ രേഖ",
+        "ബയോമെട്രിക് മറൈൻ തിരിച്ചറിയൽ കാർഡ്"
+      ]
+    },
+    "application_location": {
+      "en": "Coastal Police Station Helpdesk or Akshaya Centre",
+      "ml": "കോസ്റ്റൽ പോലീസ് സ്റ്റേഷൻ ഹെൽപ്പ് ഡെസ്ക് അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit craft details and biometric card through the fisheries portal at Akshaya.",
+      "ml": "അക്ഷയ കേന്ദ്രത്തിലെ പോർട്ടൽ വഴി വള്ളത്തിന്റെ വിവരങ്ങളും രേഖകളും സമർപ്പിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Ensure vessel registration license is currently renewed.",
+        "Visit Akshaya Centre with boat permit and Aadhaar.",
+        "Collect safety equipment authorization slip."
+      ],
+      "ml": [
+        "വള്ളത്തിന്റെ ലൈസൻസ് പുതുക്കിയിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.",
+        "രേഖകളുമായി അക്ഷയ കേന്ദ്രം സന്ദർശിക്കുക.",
+        "സുരക്ഷാ ഉപകരണങ്ങൾക്കുള്ള സ്ലിപ്പ് കൈപ്പറ്റുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-PLT-001",
+    "name": {
+      "en": "Demo Plantation Worker Off-Season Sustenance Aid",
+      "ml": "ഡെമോ തോട്ടം തൊഴിലാളി ഓഫ്-സീസൺ ആശ്വാസ ധനസഹായം"
+    },
+    "target_group": {
+      "en": "Tea, Coffee, and Rubber Plantation Labourers",
+      "ml": "തേയില, കാപ്പി, റബ്ബർ തോട്ടം തൊഴിലാളികൾ"
+    },
+    "description": {
+      "en": "Simulated financial support for plantation wage labourers during extreme monsoon months and production downtime.",
+      "ml": "കനത്ത മഴക്കാലത്തും തോട്ടങ്ങളിൽ പണിയില്ലാത്ത സമയങ്ങളിലും തൊഴിലാളികൾക്ക് നൽകുന്ന സാങ്കൽപ്പിക ആശ്വാസ ധനസഹായം."
+    },
+    "eligibility_rules": {
+      "occupation": "plantation",
+      "max_income": 150000,
+      "min_age": 18,
+      "max_age": 65,
+      "min_family_size": 1,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Plantation Labour Welfare Board Membership Passbook",
+        "Recent Wage Slip or Estate Manager Employment Certificate",
+        "Income Certificate"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "തോട്ടം തൊഴിലാളി ക്ഷേമനിധി ബോർഡ് പാസ്ബുക്ക്",
+        "ഏറ്റവും പുതിയ ശമ്പള സ്ലിപ്പ് അല്ലെങ്കിൽ മാനേജറുടെ സർട്ടിഫിക്കറ്റ്",
+        "വരുമാന സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    "application_location": {
+      "en": "Plantation Inspector Office or Local Akshaya Centre",
+      "ml": "പ്ലാന്റേഷൻ ഇൻസ്പെക്ടർ ഓഫീസ് അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit verified estate passbook details through Akshaya Centre or the estate union office.",
+      "ml": "തോട്ടം പാസ്ബുക്ക് സഹിതം അക്ഷയ കേന്ദ്രം വഴിയോ തൊഴിലാളി യൂണിയൻ ഓഫീസ് വഴിയോ അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Obtain current wage record or muster roll certificate from estate office.",
+        "Verify active status in Plantation Labour Welfare Board.",
+        "Apply at the nearest Akshaya Centre before the monsoon closure period."
+      ],
+      "ml": [
+        "എസ്റ്റേറ്റ് ഓഫീസിൽ നിന്ന് ശമ്പള വിവര രേഖ വാങ്ങുക.",
+        "ക്ഷേമനിധി ബോർഡിലെ അംഗത്വം സജീവമാണെന്ന് ഉറപ്പാക്കുക.",
+        "അടുത്തുള്ള അക്ഷയ കേന്ദ്രത്തിൽ അപേക്ഷ നൽകുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-PLT-002",
+    "name": {
+      "en": "Demo High-Range Plantation Quarters Repair Grant",
+      "ml": "ഡെമോ മലയോര തോട്ടം ലയങ്ങൾ അറ്റകുറ്റപ്പണി ഗ്രാന്റ്"
+    },
+    "target_group": {
+      "en": "Plantation Line-Room Resident Families",
+      "ml": "തോട്ടം ലയങ്ങളിൽ താമസിക്കുന്ന തൊഴിലാളി കുടുംബങ്ങൾ"
+    },
+    "description": {
+      "en": "Simulated weatherproofing and roof re-sheeting assistance for workers residing in company estate line-rooms.",
+      "ml": "തോട്ടം ലയങ്ങളിൽ താമസിക്കുന്ന തൊഴിലാളികൾക്ക് മേൽക്കൂരയും വീടും അറ്റകുറ്റപ്പണി ചെയ്യുന്നതിനുള്ള സാങ്കൽപ്പിക സഹായം."
+    },
+    "eligibility_rules": {
+      "occupation": "plantation",
+      "max_income": 180000,
+      "min_age": 21,
+      "max_age": null,
+      "min_family_size": 2,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["Wayanad", "Idukki", "Palakkad", "Kollam", "Kottayam"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Estate Quarters / Line-Room Allotment Letter",
+        "Labour Welfare Registration",
+        "Ration Card"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "തോട്ടം ലയം അനുമതി പത്രം (ലയം നമ്പർ സഹിതം)",
+        "തൊഴിലാളി ക്ഷേമനിധി രജിസ്ട്രേഷൻ",
+        "റേഷൻ കാർഡ്"
+      ]
+    },
+    "application_location": {
+      "en": "District Labour Officer (Plantations) or Akshaya Centre",
+      "ml": "ജില്ലാ ലേബർ ഓഫീസ് (പ്ലാന്റേഷൻസ്) അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Apply through Akshaya Centre with endorsement from the Estate Welfare Officer.",
+      "ml": "എസ്റ്റേറ്റ് വെൽഫെയർ ഓഫീസറുടെ സാക്ഷ്യപത്രം സഹിതം അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Get line-room residence endorsement signed by estate management.",
+        "Take a copy of household ration card showing line room address.",
+        "Visit Akshaya Centre to file the repair grant requisition."
+      ],
+      "ml": [
+        "ലയത്തിൽ താമസിക്കുന്നു എന്ന മാനേജ്‌മെന്റ് സർട്ടിഫിക്കറ്റ് വാങ്ങുക.",
+        "റേഷൻ കാർഡിന്റെ പകർപ്പ് തയ്യാറാക്കുക.",
+        "അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷ സമർപ്പിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-PLT-003",
+    "name": {
+      "en": "Demo Plantation Women Health & Maternity Wellness Aid",
+      "ml": "ഡെമോ തോട്ടം തൊഴിലാളി വനിതാ ആരോഗ്യ-പ്രസവ ആശ്വാസ പദ്ധതി"
+    },
+    "target_group": {
+      "en": "Female Tea Pluckers & Rubber Tappers",
+      "ml": "തോട്ടങ്ങളിലെ വനിതാ തൊഴിലാളികൾ"
+    },
+    "description": {
+      "en": "Simulated nutritional supplements, maternal health stipend, and ergonomic protection equipment for women plantation workers.",
+      "ml": "വനിതാ തോട്ടം തൊഴിലാളികൾക്ക് പോഷകാഹാരം, പ്രസവ സഹായം, ആരോഗ്യ സംരക്ഷണ ഉപകരണങ്ങൾ എന്നിവ നൽകുന്ന സാങ്കൽപ്പിക പദ്ധതി."
+    },
+    "eligibility_rules": {
+      "occupation": "plantation",
+      "max_income": 220000,
+      "min_age": 18,
+      "max_age": 55,
+      "min_family_size": 1,
+      "gender": "female",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Estate Labour Card showing plucker/tapper designation",
+        "Medical Certificate / Mother-Child Tracking Record (if pregnant)",
+        "Bank Passbook copy"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "എസ്റ്റേറ്റ് തൊഴിലാളി തിരിച്ചറിയൽ കാർഡ്",
+        "മെഡിക്കൽ സർട്ടിഫിക്കറ്റ് / മാതൃ-ശിശു ആരോഗ്യ കാർഡ്",
+        "ബാങ്ക് പാസ്ബുക്ക് പകർപ്പ്"
+      ]
+    },
+    "application_location": {
+      "en": "Community Health Centre or Akshaya Centre",
+      "ml": "കമ്മ്യൂണിറ്റി ഹെൽത്ത് സെന്റർ അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit application through local ASHA worker network or nearest Akshaya Centre.",
+      "ml": "ആശാ വർക്കർ വഴിയോ അടുത്തുള്ള അക്ഷയ കേന്ദ്രം വഴിയോ അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Collect maternal health registration card from nearest Primary Health Centre.",
+        "Obtain estate service slip confirming continuous work tenure.",
+        "Submit documents at Akshaya Centre."
+      ],
+      "ml": [
+        "പ്രാഥമിക ആരോഗ്യ കേന്ദ്രത്തിൽ നിന്നുള്ള കാർഡ് കൈപ്പറ്റുക.",
+        "തോട്ടത്തിലെ തൊഴിൽ രേഖ തയ്യാറാക്കുക.",
+        "അക്ഷയ കേന്ദ്രത്തിൽ അപേക്ഷ നൽകുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-PLT-004",
+    "name": {
+      "en": "Demo Plantation Youth Skill & Vocational Fellowship",
+      "ml": "ഡെമോ തോട്ടം മേഖലയിലെ യുവജന തൊഴിൽ നൈപുണ്യ ഫെലോഷിപ്പ്"
+    },
+    "target_group": {
+      "en": "Youth from Plantation Worker Households",
+      "ml": "തോട്ടം തൊഴിലാളി കുടുംബങ്ങളിലെ യുവതി യുവാക്കൾ"
+    },
+    "description": {
+      "en": "Simulated stipend and fee sponsorship for certified industrial training, polytechnic, and modern agricultural skill courses.",
+      "ml": "തോട്ടം മേഖലയിലെ കുട്ടികൾക്ക് ഐ.ടി.ഐ, പോളിടെക്നിക് എന്നിവയിൽ സൗജന്യ പഠനത്തിനും സ്റ്റൈപ്പൻഡിനുമുള്ള സാങ്കൽപ്പിക പദ്ധതി."
+    },
+    "eligibility_rules": {
+      "occupation": "plantation",
+      "max_income": 200000,
+      "min_age": 16,
+      "max_age": 28,
+      "min_family_size": 2,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Student Aadhaar Card",
+        "10th / 12th Educational Marksheet",
+        "Parent's Plantation Welfare ID",
+        "Income Certificate"
+      ],
+      "ml": [
+        "വിദ്യാർത്ഥിയുടെ ആധാർ കാർഡ്",
+        "പത്താംതരം / പ്ലസ് ടു മാർക്ക് ലിസ്റ്റ്",
+        "രക്ഷിതാവിന്റെ തോട്ടം തൊഴിലാളി കാർഡ്",
+        "വരുമാന സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    "application_location": {
+      "en": "Skill Development Mission Portal or Akshaya Centre",
+      "ml": "സ്കിൽ ഡെവലപ്‌മെന്റ് മിഷൻ അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Online registration through Akshaya Centre with course admission allotment memo.",
+      "ml": "അഡ്മിഷൻ രേഖകൾ സഹിതം അക്ഷയ കേന്ദ്രം വഴി ഓൺലൈനായി അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Obtain course admission allotment letter from ITI/Polytechnic.",
+        "Attach parent's plantation labour board passbook copy.",
+        "Apply at the nearest Akshaya Centre."
+      ],
+      "ml": [
+        "ഐ.ടി.ഐ/പോളിടെക്നിക് അലോട്ട്മെന്റ് ലെറ്റർ വാങ്ങുക.",
+        "രക്ഷിതാവിന്റെ തോട്ടം ക്ഷേമനിധി രേഖ ഒപ്പം വെയ്ക്കുക.",
+        "അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷ സമർപ്പിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-PLT-005",
+    "name": {
+      "en": "Demo Senior Plantation Labour Pension Enhancement",
+      "ml": "ഡെമോ മുതിർന്ന തോട്ടം തൊഴിലാളി പെൻഷൻ സഹായ പദ്ധതി"
+    },
+    "target_group": {
+      "en": "Retired Plantation Workers",
+      "ml": "വിരമിച്ച തോട്ടം തൊഴിലാളികൾ"
+    },
+    "description": {
+      "en": "Simulated supplemental monthly nutritional sustenance pension for retired plantation labourers above 60 years of age.",
+      "ml": "60 വയസ്സിന് മുകളിൽ പ്രായമുള്ള വിരമിച്ച തോട്ടം തൊഴിലാളികൾക്ക് പ്രതിമാസ പോഷകാഹാര സഹായ പെൻഷൻ."
+    },
+    "eligibility_rules": {
+      "occupation": "plantation",
+      "max_income": 120000,
+      "min_age": 60,
+      "max_age": null,
+      "min_family_size": 1,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card",
+        "Plantation Service Discharge Certificate / Superannuation Record",
+        "Income Certificate (under ₹1,20,000)",
+        "Bank Account Details"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ്",
+        "തോട്ടം സർവീസ് വിരമിക്കൽ സർട്ടിഫിക്കറ്റ്",
+        "വരുമാന സർട്ടിഫിക്കറ്റ് (₹1,20,000-ൽ താഴെ)",
+        "ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ"
+      ]
+    },
+    "application_location": {
+      "en": "Plantation Welfare Board Regional Office or Akshaya Centre",
+      "ml": "തോട്ടം തൊഴിലാളി ക്ഷേമനിധി ഓഫീസ് അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit physical application and retirement passbook at Akshaya Centre.",
+      "ml": "വിരമിക്കൽ രേഖകളുമായി അക്ഷയ കേന്ദ്രത്തിൽ അപേക്ഷ നൽകുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Gather estate discharge paper and pension passbook.",
+        "Obtain life certificate and income certificate from Village Office.",
+        "Submit at Akshaya Centre."
+      ],
+      "ml": [
+        "വിരമിക്കൽ സർട്ടിഫിക്കറ്റും പാസ്ബുക്കും തയ്യാറാക്കുക.",
+        "വില്ലേജ് ഓഫീസിൽ നിന്ന് ലൈഫ് സർട്ടിഫിക്കറ്റും വരുമാന സർട്ടിഫിക്കറ്റും വാങ്ങുക.",
+        "അക്ഷയ കേന്ദ്രത്തിൽ സമർപ്പിക്കുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-SHR-001",
+    "name": {
+      "en": "Demo Coastal & Plantation Special Disability Allowance",
+      "ml": "ഡെമോ തീരദേശ-തോട്ടം മേഖല ഭിന്നശേഷി പ്രത്യേക ആശ്വാസ പദ്ധതി"
+    },
+    "target_group": {
+      "en": "Persons with Disabilities in Fishing and Plantation Families",
+      "ml": "മത്സ്യ-തോട്ടം മേഖലയിലെ ഭിന്നശേഷിയുള്ള വ്യക്തികൾ"
+    },
+    "description": {
+      "en": "Simulated monthly therapeutic care allowance and assistive equipment support for households with disabled members.",
+      "ml": "ഭിന്നശേഷിയുള്ള കുടുംബാംഗങ്ങൾക്ക് ചികിത്സാ സഹായവും സഹായ ഉപകരണങ്ങളും നൽകുന്ന സാങ്കൽപ്പിക പദ്ധതി."
+    },
+    "eligibility_rules": {
+      "occupation": "any",
+      "max_income": 250000,
+      "min_age": 5,
+      "max_age": null,
+      "min_family_size": 1,
+      "gender": "all",
+      "disability_required": true,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card of Person with Disability",
+        "Unique Disability ID (UDID) or Medical Board Certificate",
+        "Parent / Guardian Welfare Board Card (Fisher or Plantation)",
+        "Income Certificate"
+      ],
+      "ml": [
+        "ഭിന്നശേഷിയുള്ള വ്യക്തിയുടെ ആധാർ കാർഡ്",
+        "യു.ഡി.ഐ.ഡി (UDID) കാർഡ് അല്ലെങ്കിൽ മെഡിക്കൽ ബോർഡ് സർട്ടിഫിക്കറ്റ്",
+        "രക്ഷിതാവിന്റെ തൊഴിലാളി ക്ഷേമനിധി കാർഡ്",
+        "വരുമാന സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    "application_location": {
+      "en": "District Social Justice Office or Akshaya Centre",
+      "ml": "ജില്ലാ സാമൂഹ്യനീതി ഓഫീസ് അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Apply via Akshaya Centre or the Social Justice online portal with UDID number.",
+      "ml": "യു.ഡി.ഐ.ഡി നമ്പർ സഹിതം അക്ഷയ കേന്ദ്രം വഴി അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Ensure UDID card or government hospital disability certificate is available.",
+        "Verify family's link to fishing or plantation sector.",
+        "Submit application at the nearest Akshaya Centre."
+      ],
+      "ml": [
+        "യു.ഡി.ഐ.ഡി കാർഡ് അല്ലെങ്കിൽ മെഡിക്കൽ സർട്ടിഫിക്കറ്റ് കരുതുക.",
+        "കുടുംബത്തിന്റെ തൊഴിൽ രേഖകൾ ഒപ്പം വെയ്ക്കുക.",
+        "അടുത്തുള്ള അക്ഷയ കേന്ദ്രത്തിൽ അപേക്ഷ നൽകുക."
+      ]
+    }
+  },
+  {
+    "id": "DEMO-SHR-002",
+    "name": {
+      "en": "Demo Senior Vulnerable Household Sustenance Pension",
+      "ml": "ഡെമോ മുതിർന്ന പൗരന്മാർക്കുള്ള കുടുംബ സുരക്ഷാ പെൻഷൻ"
+    },
+    "target_group": {
+      "en": "Senior Citizens from Fisher and Plantation Hamlets",
+      "ml": "തീരദേശ-തോട്ടം മേഖലകളിലെ മുതിർന്ന പൗരന്മാർ"
+    },
+    "description": {
+      "en": "Simulated universal elder care sustenance assistance for senior household heads without steady wage employment.",
+      "ml": "സ്ഥിര വരുമാനമില്ലാത്ത മുതിർന്ന പൗരന്മാർക്ക് പ്രതിമാസ ജീവിതച്ചെലവ് ഉറപ്പാക്കുന്ന സാങ്കൽപ്പിക പെൻഷൻ."
+    },
+    "eligibility_rules": {
+      "occupation": "any",
+      "max_income": 120000,
+      "min_age": 60,
+      "max_age": null,
+      "min_family_size": 1,
+      "gender": "all",
+      "disability_required": false,
+      "districts": ["all"]
+    },
+    "required_documents": {
+      "en": [
+        "Aadhaar Card / Age Proof",
+        "Ration Card showing family members",
+        "Income Certificate from Village Officer",
+        "Bank Passbook"
+      ],
+      "ml": [
+        "ആധാർ കാർഡ് / പ്രായം തെളിയിക്കുന്ന രേഖ",
+        "റേഷൻ കാർഡ്",
+        "വില്ലേജ് ഓഫീസർ നൽകുന്ന വരുമാന സർട്ടിഫിക്കറ്റ്",
+        "ബാങ്ക് പാസ്ബുക്ക്"
+      ]
+    },
+    "application_location": {
+      "en": "Local Grama Panchayat / Municipality Office or Akshaya Centre",
+      "ml": "ഗ്രാമപഞ്ചായത്ത് / നഗരസഭ ഓഫീസ് അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം"
+    },
+    "application_method": {
+      "en": "Submit directly at the Grama Panchayat office or register at Akshaya Centre.",
+      "ml": "പഞ്ചായത്ത് ഓഫീസിലോ അക്ഷയ കേന്ദ്രത്തിലോ നേരിട്ടെത്തി അപേക്ഷിക്കുക."
+    },
+    "what_to_do_next": {
+      "en": [
+        "Get family annual income certificate from Village Office.",
+        "Attach first page copy of active bank savings account.",
+        "Submit at local body counter or Akshaya Centre."
+      ],
+      "ml": [
+        "വില്ലേജ് ഓഫീസിൽ നിന്ന് വരുമാന സർട്ടിഫിക്കറ്റ് വാങ്ങുക.",
+        "ബാങ്ക് അക്കൗണ്ട് പാസ്ബുക്കിന്റെ പകർപ്പ് തയ്യാറാക്കുക.",
+        "പഞ്ചായത്ത് ഓഫീസിലോ അക്ഷയ കേന്ദ്രത്തിലോ സമർപ്പിക്കുക."
+      ]
+    }
+  }
+]
+

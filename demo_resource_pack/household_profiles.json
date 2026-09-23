@@ -1,0 +1,108 @@
+[
+  {
+    "id": "DEMO-HH-01",
+    "title": {
+      "en": "Demo Household 1: Coastal Fishing Family",
+      "ml": "ഡെമോ കുടുംബം 1: തീരദേശ മത്സ്യത്തൊഴിലാളി കുടുംബം"
+    },
+    "description": {
+      "en": "Fisher household in Ernakulam with 4 members and modest income.",
+      "ml": "എറണാകുളത്തെ 4 അംഗങ്ങളുള്ള സാധാരണ മത്സ്യത്തൊഴിലാളി കുടുംബം."
+    },
+    "data": {
+      "occupation": "fisher",
+      "annual_income": 150000,
+      "age": 42,
+      "family_size": 4,
+      "district": "Ernakulam",
+      "gender": "male",
+      "has_disability": "no"
+    },
+    "expected_matches_count": 3
+  },
+  {
+    "id": "DEMO-HH-02",
+    "title": {
+      "en": "Demo Household 2: High-Range Tea Plantation Family",
+      "ml": "ഡെമോ കുടുംബം 2: മലയോര തേയില തോട്ടം തൊഴിലാളി കുടുംബം"
+    },
+    "description": {
+      "en": "Female tea plucker household in Wayanad living in estate quarters.",
+      "ml": "വയനാട്ടിലെ ലയത്തിൽ താമസിക്കുന്ന വനിതാ തേയില തോട്ടം തൊഴിലാളി."
+    },
+    "data": {
+      "occupation": "plantation",
+      "annual_income": 120000,
+      "age": 35,
+      "family_size": 3,
+      "district": "Wayanad",
+      "gender": "female",
+      "has_disability": "no"
+    },
+    "expected_matches_count": 3
+  },
+  {
+    "id": "DEMO-HH-03",
+    "title": {
+      "en": "Demo Household 3: Fisher with Above-Threshold Income",
+      "ml": "ഡെമോ കുടുംബം 3: ഉയർന്ന വരുമാനമുള്ള മത്സ്യത്തൊഴിലാളി"
+    },
+    "description": {
+      "en": "Mechanized fishing operator in Alappuzha with income above demo ceiling (demonstrates rule limits).",
+      "ml": "ആലപ്പുഴയിലെ ഉയർന്ന വരുമാനമുള്ള മത്സ്യത്തൊഴിലാളി (പരിധിക്ക് മുകളിൽ)."
+    },
+    "data": {
+      "occupation": "fisher",
+      "annual_income": 350000,
+      "age": 48,
+      "family_size": 5,
+      "district": "Alappuzha",
+      "gender": "male",
+      "has_disability": "no"
+    },
+    "expected_matches_count": 0
+  },
+  {
+    "id": "DEMO-HH-04",
+    "title": {
+      "en": "Demo Household 4: Plantation Worker with Incomplete Information",
+      "ml": "ഡെമോ കുടുംബം 4: അപൂർണ്ണ വിവരങ്ങളുള്ള തോട്ടം തൊഴിലാളി"
+    },
+    "description": {
+      "en": "Plantation worker in Idukki where annual income has not been specified (demonstrates no-guessing policy).",
+      "ml": "വരുമാനം രേഖപ്പെടുത്താത്ത ഇടുക്കിയിലെ തോട്ടം തൊഴിലാളി (അനുമാനങ്ങളില്ലാതെ വിവരങ്ങൾ ആവശ്യപ്പെടുന്നു)."
+    },
+    "data": {
+      "occupation": "plantation",
+      "annual_income": null,
+      "age": 40,
+      "family_size": 4,
+      "district": "Idukki",
+      "gender": "male",
+      "has_disability": "no"
+    },
+    "expected_matches_count": 0
+  },
+  {
+    "id": "DEMO-HH-05",
+    "title": {
+      "en": "Demo Household 5: Senior Fisher with Disability",
+      "ml": "ഡെമോ കുടുംബം 5: ഭിന്നശേഷിയുള്ള മുതിർന്ന മത്സ്യത്തൊഴിലാളി"
+    },
+    "description": {
+      "en": "Senior citizen fisher in Kollam with certified disability receiving special assistive screening.",
+      "ml": "കൊല്ലത്തെ ഭിന്നശേഷിയുള്ള മുതിർന്ന പൗരനായ മത്സ്യത്തൊഴിലാളി."
+    },
+    "data": {
+      "occupation": "fisher",
+      "annual_income": 95000,
+      "age": 63,
+      "family_size": 2,
+      "district": "Kollam",
+      "gender": "male",
+      "has_disability": "yes"
+    },
+    "expected_matches_count": 4
+  }
+]
+

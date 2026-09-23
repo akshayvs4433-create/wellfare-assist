@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="results-container">
+
+  <!-- Header Banner -->
+  <div class="results-header">
+    <div class="results-badge-bar">
+      <span>✓</span>
+      <span>{{ t('matching_count_prefix') }} {{ results.summary.eligible_count }} {{ t('schemes_found') }}</span>
+    </div>
+    <h1 style="font-size: 1.85rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 0.35rem;">
+      {{ t('results_title') }}
+    </h1>
+    <p style="color: var(--color-text-muted); font-size: 1rem;">
+      {{ t('results_subtitle') }}
+    </p>
+  </div>
+
+  <!-- SECTION 1: POTENTIALLY ELIGIBLE SCHEMES -->
+  {% if results.eligible %}
+    <div class="eligible-schemes-list">
+      {% for scheme in results.eligible %}
+        <article class="scheme-card" id="{{ scheme.id }}">
+          <div class="scheme-header">
+            <div>
+              <span class="scheme-target-badge">{{ scheme.target_group }}</span>
+              <h2 class="scheme-name" style="margin-top: 0.35rem;">{{ scheme.name }}</h2>
+            </div>
+            <span style="background-color: var(--color-primary-light); color: var(--color-primary-dark); padding: 4px 10px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; border: 1px solid var(--color-primary-border); white-space: nowrap;">
+              {{ 'Potential Match' if lang == 'en' else 'സാധ്യതയുള്ള പദ്ധതി' }}
+            </span>
+          </div>
+
+          <p class="scheme-desc">{{ scheme.description }}</p>
+
+          <!-- Why this was shown -->
+          <div class="result-section-box">
+            <div class="result-section-title">
+              <span>💡</span> {{ t('why_shown') }}
+            </div>
+            <ul class="reason-list">
+              {% for reason in scheme.reasons_why %}
+                <li>{{ reason }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Documents you may need -->
+          <div class="result-section-box">
+            <div class="result-section-title">
+              <span>📄</span> {{ t('docs_needed') }}
+            </div>
+            <ul class="doc-list">
+              {% for doc in scheme.required_documents %}
+                <li>{{ doc }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Where to apply & What to do next -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="result-section-box" style="margin-bottom: 0;">
+              <div class="result-section-title">
+                <span>📍</span> {{ t('where_to_apply') }}
+              </div>
+              <p style="font-size: 0.95rem; font-weight: 600; color: var(--color-text-main); margin-bottom: 0.35rem;">
+                {{ scheme.application_location }}
+              </p>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+                {{ scheme.application_method }}
+              </p>
+            </div>
+
+            <div class="result-section-box" style="margin-bottom: 0;">
+              <div class="result-section-title">
+                <span>📋</span> {{ t('what_next') }}
+              </div>
+              <ol class="step-list">
+                {% for step in scheme.what_to_do_next %}
+                  <li>{{ step }}</li>
+                {% endfor %}
+              </ol>
+            </div>
+          </div>
+
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <!-- No matches scenario -->
+    <div class="card" style="text-align: center; padding: 3rem 1.5rem;">
+      <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔍</div>
+      <h2 class="card-title">{{ t('no_matches_title') }}</h2>
+      <p class="card-subtitle" style="max-width: 500px; margin: 0 auto 1.5rem;">
+        {{ t('no_matches_desc') }}
+      </p>
+      <a href="{{ url_for('screening', step=1) }}" class="btn btn-primary">
+        {{ t('edit_answers_btn') }}
+      </a>
+    </div>
+  {% endif %}
+
+  <!-- SECTION 2: MORE INFORMATION NEEDED (STRICT NO-GUESSING POLICY) -->
+  {% if results.more_info_needed %}
+    <section class="missing-info-box">
+      <h2 class="missing-info-title">⚠️ {{ t('more_info_needed_title') }} ({{ results.summary.more_info_count }})</h2>
+      <p class="missing-info-desc">{{ t('more_info_needed_desc') }}</p>
+
+      {% for scheme in results.more_info_needed %}
+        <div class="missing-scheme-item">
+          <div>
+            <div style="font-weight: 700; color: var(--color-text-main); font-size: 1rem;">{{ scheme.name }}</div>
+            <div style="font-size: 0.88rem; color: #78350f; margin-top: 0.25rem;">
+              {% for exp in scheme.missing_explanations %}
+                <span>• {{ exp }} </span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem;">
+            {% if 'annual_income' in scheme.missing_fields %}
+              <a href="{{ url_for('screening', step=2) }}" class="btn btn-sm btn-outline-primary" style="background: white;">
+                + {{ t('add_income') }}
+              </a>
+            {% elif 'age' in scheme.missing_fields %}
+              <a href="{{ url_for('screening', step=3) }}" class="btn btn-sm btn-outline-primary" style="background: white;">
+                + {{ 'Add Age' if lang == 'en' else 'പ്രായം നൽകുക' }}
+              </a>
+            {% else %}
+              <a href="{{ url_for('screening', step=1) }}" class="btn btn-sm btn-outline-primary" style="background: white;">
+                {{ t('edit') }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  <!-- SECTION 3: NEAREST SIMULATED AKSHAYA CENTRES -->
+  <div class="card">
+    <h2 class="card-title">
+      🏢 {{ 'Recommended Assistance Point in Your District' if lang == 'en' else 'നിങ്ങളുടെ ജില്ലയിലെ അക്ഷയ സഹായ കേന്ദ്രങ്ങൾ' }}
+    </h2>
+    <p class="card-subtitle">
+      {{ 'You can visit this designated Akshaya Centre to clarify scheme prerequisites, verify welfare board stamps, and file applications:' if lang == 'en' else 'പദ്ധതി വിവരങ്ങൾ അറിയാനും രേഖകൾ പരിശോധിക്കാനും അപേക്ഷ സമർപ്പിക്കാനും ഈ കേന്ദ്രം സന്ദർശിക്കാം:' }}
+    </p>
+
+    {% for centre in results.akshaya_centres %}
+      <div class="akshaya-box">
+        <div class="akshaya-header">{{ centre.name }}</div>
+        <div class="akshaya-address">📍 {{ centre.address }} ({{ centre.locality }})</div>
+        <div class="akshaya-meta">
+          <span>📞 {{ centre.contact_phone }}</span>
+          <span>⏰ {{ centre.working_hours }}</span>
+          <span>💼 {{ centre.available_services|join(', ') }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Disclaimer Banner -->
+  <div class="disclaimer-banner">
+    <strong class="disclaimer-badge">⚖️ {{ t('disclaimer_title') }}:</strong>
+    {{ t('disclaimer_text') }}
+  </div>
+
+  <!-- Bottom Page Actions -->
+  <div class="form-actions" style="border-top: none;">
+    <a href="{{ url_for('screening', step=2) }}" class="btn btn-secondary">
+      ✏️ {{ t('edit_answers_btn') }}
+    </a>
+
+    <a href="{{ url_for('reset') }}" class="btn btn-primary">
+      🔄 {{ t('start_over') }}
+    </a>
+  </div>
+
+</div>
+{% endblock %}
+

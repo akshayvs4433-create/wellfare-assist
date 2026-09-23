@@ -1,0 +1,76 @@
+[
+  {
+    "id": "TC-01",
+    "name": "Fishing household with standard income qualifies for fisher schemes",
+    "input": {
+      "occupation": "fisher",
+      "annual_income": 150000,
+      "age": 42,
+      "family_size": 4,
+      "district": "Ernakulam",
+      "gender": "male",
+      "has_disability": "no"
+    },
+    "expected_eligible_min": 2,
+    "expected_eligible_ids": ["DEMO-FSH-001", "DEMO-FSH-002"]
+  },
+  {
+    "id": "TC-02",
+    "name": "Plantation female worker in Wayanad qualifies for plantation schemes",
+    "input": {
+      "occupation": "plantation",
+      "annual_income": 120000,
+      "age": 35,
+      "family_size": 3,
+      "district": "Wayanad",
+      "gender": "female",
+      "has_disability": "no"
+    },
+    "expected_eligible_min": 3,
+    "expected_eligible_ids": ["DEMO-PLT-001", "DEMO-PLT-002", "DEMO-PLT-003"]
+  },
+  {
+    "id": "TC-03",
+    "name": "Fisher with high income (>3.5L) is disqualified on income threshold",
+    "input": {
+      "occupation": "fisher",
+      "annual_income": 350000,
+      "age": 48,
+      "family_size": 5,
+      "district": "Alappuzha",
+      "gender": "male",
+      "has_disability": "no"
+    },
+    "expected_eligible_count": 0
+  },
+  {
+    "id": "TC-04",
+    "name": "Household with missing income triggers more_info_needed instead of guessing",
+    "input": {
+      "occupation": "plantation",
+      "annual_income": null,
+      "age": 40,
+      "family_size": 4,
+      "district": "Idukki",
+      "gender": "male",
+      "has_disability": "no"
+    },
+    "expected_more_info_min": 1,
+    "expected_more_info_fields": ["annual_income"]
+  },
+  {
+    "id": "TC-05",
+    "name": "Senior disabled citizen qualifies for disability allowance and senior pension",
+    "input": {
+      "occupation": "fisher",
+      "annual_income": 95000,
+      "age": 63,
+      "family_size": 2,
+      "district": "Kollam",
+      "gender": "male",
+      "has_disability": "yes"
+    },
+    "expected_eligible_ids": ["DEMO-SHR-001", "DEMO-SHR-002"]
+  }
+]
+

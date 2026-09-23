@@ -1,0 +1,211 @@
+[
+  {
+    "id": "AK-EKM-01",
+    "district": "Ernakulam",
+    "name": {
+      "en": "Demo Akshaya e-Centre Vypin Coastal",
+      "ml": "ഡെമോ അക്ഷയ ഇ-കേന്ദ്രം വൈപ്പിൻ കോസ്റ്റൽ"
+    },
+    "locality": {
+      "en": "Vypin, Ernakulam",
+      "ml": "വൈപ്പിൻ, എറണാകുളം"
+    },
+    "address": {
+      "en": "Opposite Fish Landing Centre, Main Road, Vypin, Kochi - 682508",
+      "ml": "മത്സ്യബന്ധന കേന്ദ്രത്തിന് എതിർവശം, മെയിൻ റോഡ്, വൈപ്പിൻ, കൊച്ചി - 682508"
+    },
+    "contact_phone": "+91 484 2501001",
+    "working_hours": "9:30 AM - 5:30 PM (Mon-Sat)",
+    "available_services": [
+      "Welfare Board Applications",
+      "Income & Residence Certificates",
+      "Aadhaar Services",
+      "e-Grantz Portal Submissions"
+    ]
+  },
+  {
+    "id": "AK-EKM-02",
+    "district": "Ernakulam",
+    "name": {
+      "en": "Demo Akshaya Centre Fort Kochi",
+      "ml": "ഡെമോ അക്ഷയ കേന്ദ്രം ഫോർട്ട് കൊച്ചി"
+    },
+    "locality": {
+      "en": "Fort Kochi, Ernakulam",
+      "ml": "ഫോർട്ട് കൊച്ചി, എറണാകുളം"
+    },
+    "address": {
+      "en": "Near Customs Jetty, Calvathy Road, Fort Kochi - 682001",
+      "ml": "കസ്റ്റംസ് ജെട്ടിക്ക് സമീപം, കൽവത്തി റോഡ്, ഫോർട്ട് കൊച്ചി - 682001"
+    },
+    "contact_phone": "+91 484 2213456",
+    "working_hours": "9:00 AM - 5:00 PM (Mon-Sat)",
+    "available_services": [
+      "Fisheries Welfare Enrolment",
+      "Social Security Pension Helpdesk",
+      "Online Document Upload"
+    ]
+  },
+  {
+    "id": "AK-WYD-01",
+    "district": "Wayanad",
+    "name": {
+      "en": "Demo Akshaya e-Centre Meppadi Tea Estate Junction",
+      "ml": "ഡെമോ അക്ഷയ ഇ-കേന്ദ്രം മേപ്പാടി ടീ എസ്റ്റേറ്റ് ജംഗ്ഷൻ"
+    },
+    "locality": {
+      "en": "Meppadi, Wayanad",
+      "ml": "മേപ്പാടി, വയനാട്"
+    },
+    "address": {
+      "en": "Panchayat Shopping Complex, Near Bus Stand, Meppadi, Wayanad - 673577",
+      "ml": "പഞ്ചായത്ത് ഷോപ്പിംഗ് കോംപ്ലക്സ്, ബസ് സ്റ്റാൻഡിന് സമീപം, മേപ്പാടി, വയനാട് - 673577"
+    },
+    "contact_phone": "+91 4936 282210",
+    "working_hours": "9:30 AM - 5:30 PM (Mon-Sat)",
+    "available_services": [
+      "Plantation Labour Welfare Services",
+      "Line-Room Repair Documentation",
+      "Aadhaar & e-District Certificates"
+    ]
+  },
+  {
+    "id": "AK-WYD-02",
+    "district": "Wayanad",
+    "name": {
+      "en": "Demo Akshaya Centre Kalpetta Civil Station",
+      "ml": "ഡെമോ അക്ഷയ കേന്ദ്രം കൽപ്പറ്റ സിവിൽ സ്റ്റേഷൻ"
+    },
+    "locality": {
+      "en": "Kalpetta, Wayanad",
+      "ml": "കൽപ്പറ്റ, വയനാട്"
+    },
+    "address": {
+      "en": "Opposite Civil Station, Main Road, Kalpetta - 673121",
+      "ml": "സിവിൽ സ്റ്റേഷന് എതിർവശം, മെയിൻ റോഡ്, കൽപ്പറ്റ - 673121"
+    },
+    "contact_phone": "+91 4936 202155",
+    "working_hours": "9:00 AM - 5:00 PM (Mon-Sat)",
+    "available_services": [
+      "Welfare Board Enrolment",
+      "Income Certificates",
+      "Disability UDID Card Assistance"
+    ]
+  },
+  {
+    "id": "AK-ALP-01",
+    "district": "Alappuzha",
+    "name": {
+      "en": "Demo Akshaya Centre Ambalapuzha Coastal",
+      "ml": "ഡെമോ അക്ഷയ കേന്ദ്രം അമ്പലപ്പുഴ കോസ്റ്റൽ"
+    },
+    "locality": {
+      "en": "Ambalapuzha, Alappuzha",
+      "ml": "അമ്പലപ്പുഴ, ആലപ്പുഴ"
+    },
+    "address": {
+      "en": "Fisheries Harbour Road, Purakkad, Ambalapuzha - 688561",
+      "ml": "ഫിഷറീസ് ഹാർബർ റോഡ്, പുറക്കാട്, അമ്പലപ്പുഴ - 688561"
+    },
+    "contact_phone": "+91 477 2271890",
+    "working_hours": "9:30 AM - 5:00 PM (Mon-Sat)",
+    "available_services": [
+      "Matsya Thozhilali Welfare Board Services",
+      "Marine Biometric ID Helpdesk",
+      "Relief Scheme Online Processing"
+    ]
+  },
+  {
+    "id": "AK-KLM-01",
+    "district": "Kollam",
+    "name": {
+      "en": "Demo Akshaya Centre Chavara Port Road",
+      "ml": "ഡെമോ അക്ഷയ കേന്ദ്രം ചവറ പോർട്ട് റോഡ്"
+    },
+    "locality": {
+      "en": "Chavara, Kollam",
+      "ml": "ചവറ, കൊല്ലം"
+    },
+    "address": {
+      "en": "Near Bridges & Fisheries Jetty, Chavara, Kollam - 691583",
+      "ml": "ഫിഷറീസ് ജെട്ടിക്ക് സമീപം, ചവറ, കൊല്ലം - 691583"
+    },
+    "contact_phone": "+91 476 2682330",
+    "working_hours": "9:30 AM - 5:30 PM (Mon-Sat)",
+    "available_services": [
+      "Fisher Welfare Board Documentation",
+      "Disability Allowance Registration",
+      "Panchayat Social Assistance"
+    ]
+  },
+  {
+    "id": "AK-IDK-01",
+    "district": "Idukki",
+    "name": {
+      "en": "Demo Akshaya Centre Munnar Tea Garden Hub",
+      "ml": "ഡെമോ അക്ഷയ കേന്ദ്രം മൂന്നാർ ടീ ഗാർഡൻ ഹബ്ബ്"
+    },
+    "locality": {
+      "en": "Munnar, Idukki",
+      "ml": "മൂന്നാർ, ഇടുക്കി"
+    },
+    "address": {
+      "en": "Old Munnar Market Road, Near Panchayat Office, Munnar - 685612",
+      "ml": "പഴയ മൂന്നാർ മാർക്കറ്റ് റോഡ്, പഞ്ചായത്ത് ഓഫീസിന് സമീപം, മൂന്നാർ - 685612"
+    },
+    "contact_phone": "+91 4865 230411",
+    "working_hours": "9:30 AM - 5:00 PM (Mon-Sat)",
+    "available_services": [
+      "Plantation Line Quarters Assistance",
+      "Tea Estate Labour Welfare Enrolment",
+      "Direct Income Certificate Filing"
+    ]
+  },
+  {
+    "id": "AK-TVM-01",
+    "district": "Thiruvananthapuram",
+    "name": {
+      "en": "Demo Akshaya Centre Vizhinjam Harbour",
+      "ml": "ഡെമോ അക്ഷയ കേന്ദ്രം വിഴിഞ്ഞം ഹാർബർ"
+    },
+    "locality": {
+      "en": "Vizhinjam, Thiruvananthapuram",
+      "ml": "വിഴിഞ്ഞം, തിരുവനന്തപുരം"
+    },
+    "address": {
+      "en": "Harbour Road, Near Marine Police Station, Vizhinjam - 695521",
+      "ml": "ഹാർബർ റോഡ്, മറൈൻ പോലീസ് സ്റ്റേഷന് സമീപം, വിഴിഞ്ഞം - 695521"
+    },
+    "contact_phone": "+91 471 2480899",
+    "working_hours": "9:00 AM - 5:30 PM (Mon-Sat)",
+    "available_services": [
+      "Marine Bio-ID Cards",
+      "Fisheries Relief Applications",
+      "Aadhaar and Digital Certificates"
+    ]
+  },
+  {
+    "id": "AK-GEN-01",
+    "district": "Other",
+    "name": {
+      "en": "Demo District Akshaya e-Kendram Helpdesk",
+      "ml": "ഡെമോ ജില്ലാ അക്ഷയ ഇ-കേന്ദ്രം ഹെൽപ്പ് ഡെസ്ക്"
+    },
+    "locality": {
+      "en": "District Headquarters",
+      "ml": "ജില്ലാ ആസ്ഥാനം"
+    },
+    "address": {
+      "en": "Civil Station Annex, Taluk Office Road, Kerala",
+      "ml": "സിവിൽ സ്റ്റേഷൻ അനക്സ്, താലൂക്ക് ഓഫീസ് റോഡ്, കേരളം"
+    },
+    "contact_phone": "+91 471 2525444",
+    "working_hours": "9:30 AM - 5:30 PM (Mon-Sat)",
+    "available_services": [
+      "Government Welfare Scheme Registration",
+      "e-District Portal Filing",
+      "Certificate Verification"
+    ]
+  }
+]
+

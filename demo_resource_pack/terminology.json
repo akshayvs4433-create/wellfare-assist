@@ -1,0 +1,279 @@
+{
+  "app_name": {
+    "en": "WelfareAI",
+    "ml": "വെൽഫെയർ AI"
+  },
+  "tagline": {
+    "en": "Welfare-Entitlement Screening Assistant for Plantation & Fishing Families",
+    "ml": "തോട്ടം, മത്സ്യത്തൊഴിലാളി കുടുംബങ്ങൾക്കുള്ള ക്ഷേമപദ്ധതി പരിശോധന സഹായി"
+  },
+  "hero_subtitle": {
+    "en": "Find welfare schemes you may be eligible for.",
+    "ml": "നിങ്ങൾക്ക് അർഹതയുണ്ടായേക്കാവുന്ന ക്ഷേമപദ്ധതികൾ കണ്ടെത്തുക."
+  },
+  "hero_intro": {
+    "en": "Answer a few simple questions about your household. We'll check the available schemes and explain what you may be eligible for.",
+    "ml": "നിങ്ങളുടെ കുടുംബത്തെക്കുറിച്ചുള്ള ഏതാനും ലളിതമായ ചോദ്യങ്ങൾക്ക് മറുപടി നൽകുക. ലഭ്യമായ പദ്ധതികൾ പരിശോധിച്ച് നിങ്ങൾക്ക് എന്തൊക്കെ ലഭിച്ചേക്കാമെന്ന് വിശദീകരിക്കും."
+  },
+  "start_screening": {
+    "en": "Start Screening",
+    "ml": "പരിശോധന ആരംഭിക്കുക"
+  },
+  "try_demo": {
+    "en": "Try a Demo Household",
+    "ml": "ഡെമോ കുടുംബ വിവരങ്ങൾ പരീക്ഷിക്കുക"
+  },
+  "select_demo_prompt": {
+    "en": "Choose a pre-filled demo household to see how screening works:",
+    "ml": "പരിശോധന എങ്ങനെയെന്ന് കാണാൻ താഴെ പറയുന്ന ഒരു ഡെമോ കുടുംബം തിരഞ്ഞെടുക്കുക:"
+  },
+  "use_this_profile": {
+    "en": "Use This Household",
+    "ml": "ഈ വിവരങ്ങൾ ഉപയോഗിക്കുക"
+  },
+  "close": {
+    "en": "Close",
+    "ml": "അടയ്ക്കുക"
+  },
+  "step": {
+    "en": "Step",
+    "ml": "ഘട്ടം"
+  },
+  "of": {
+    "en": "of",
+    "ml": "ൽ"
+  },
+  "step1_title": {
+    "en": "Tell us about your household",
+    "ml": "കുടുംബത്തെക്കുറിച്ചുള്ള വിവരങ്ങൾ"
+  },
+  "step1_question": {
+    "en": "What is the main occupation of your household?",
+    "ml": "നിങ്ങളുടെ കുടുംബത്തിലെ പ്രധാന തൊഴിൽ എന്താണ്?"
+  },
+  "occ_fisher": {
+    "en": "Fisher / Allied Fishing Worker",
+    "ml": "മത്സ്യത്തൊഴിലാളി / അനുബന്ധ തൊഴിലാളി"
+  },
+  "occ_plantation": {
+    "en": "Plantation Worker (Tea, Coffee, Rubber)",
+    "ml": "തോട്ടം തൊഴിലാളി (തേയില, കാപ്പി, റബ്ബർ)"
+  },
+  "occ_other": {
+    "en": "Other Occupation",
+    "ml": "മറ്റു തൊഴിലുകൾ"
+  },
+  "step2_title": {
+    "en": "About your household income",
+    "ml": "കുടുംബ വരുമാന വിവരങ്ങൾ"
+  },
+  "step2_question": {
+    "en": "What is your approximate annual household income?",
+    "ml": "നിങ്ങളുടെ കുടുംബത്തിന്റെ ഏകദേശ വാർഷിക വരുമാനം എത്രയാണ്?"
+  },
+  "annual_income": {
+    "en": "Annual Household Income (in ₹)",
+    "ml": "വാർഷിക കുടുംബ വരുമാനം (₹ രൂപയിൽ)"
+  },
+  "income_helper": {
+    "en": "Total earnings of all earning members in a year. As stated on your income certificate or muster roll.",
+    "ml": "എല്ലാ അംഗങ്ങളുടെയും ഒരു വർഷത്തെ ആകെ വരുമാനം. വില്ലേജ് സർട്ടിഫിക്കറ്റിൽ ഉള്ളതുപോലെ."
+  },
+  "leave_blank_note": {
+    "en": "If you don't know the exact amount, you can leave it blank or enter an estimate. We never guess missing numbers.",
+    "ml": "കൃത്യമായ തുക അറിയില്ലെങ്കിൽ തൽക്കാലം ഒഴിവാക്കാം. ഞങ്ങൾ അനുമാനങ്ങൾ നടത്താറില്ല."
+  },
+  "step3_title": {
+    "en": "Age and family members",
+    "ml": "പ്രായവും കുടുംബാംഗങ്ങളും"
+  },
+  "applicant_age": {
+    "en": "Applicant / Primary Earner Age",
+    "ml": "അപേക്ഷകന്റെ / പ്രധാന വരുമാനക്കാരന്റെ പ്രായം"
+  },
+  "age_helper": {
+    "en": "In completed years as per Aadhaar or official record.",
+    "ml": "ആധാർ അല്ലെങ്കിൽ തിരിച്ചറിയൽ രേഖ പ്രകാരമുള്ള പൂർത്തിയായ വയസ്സ്."
+  },
+  "family_size": {
+    "en": "Total number of family members",
+    "ml": "കുടുംബത്തിലെ ആകെ അംഗങ്ങളുടെ എണ്ണം"
+  },
+  "gender_label": {
+    "en": "Applicant Gender",
+    "ml": "അപേക്ഷകന്റെ ലിംഗം"
+  },
+  "gender_female": {
+    "en": "Female",
+    "ml": "സ്ത്രീ"
+  },
+  "gender_male": {
+    "en": "Male",
+    "ml": "പുരുഷൻ"
+  },
+  "gender_other": {
+    "en": "Other / Prefer not to say",
+    "ml": "മറ്റുള്ളവ"
+  },
+  "step4_title": {
+    "en": "District and special considerations",
+    "ml": "ജില്ലയും മറ്റ് പ്രത്യേക വിവരങ്ങളും"
+  },
+  "district_label": {
+    "en": "District in Kerala",
+    "ml": "കേരളത്തിലെ ജില്ല"
+  },
+  "disability_label": {
+    "en": "Does anyone in the household have a certified disability or chronic illness?",
+    "ml": "കുടുംബത്തിൽ അംഗീകൃത ഭിന്നശേഷിയോ ദീർഘകാല രോഗമോ ഉള്ളവർ ഉണ്ടോ?"
+  },
+  "disability_yes": {
+    "en": "Yes, certified (UDID / Medical Certificate)",
+    "ml": "ഉണ്ട് (UDID അല്ലെങ്കിൽ മെഡിക്കൽ സർട്ടിഫിക്കറ്റ് ഉണ്ട്)"
+  },
+  "disability_no": {
+    "en": "No",
+    "ml": "ഇല്ല"
+  },
+  "speak_tooltip": {
+    "en": "Speak to fill this field",
+    "ml": "സംസാരിച്ച് പൂരിപ്പിക്കാൻ മൈക്ക് അമർത്തുക"
+  },
+  "listening": {
+    "en": "Listening... Speak now",
+    "ml": "കേൾക്കുന്നു... സംസാരിക്കൂ"
+  },
+  "next": {
+    "en": "Next",
+    "ml": "അടുത്തത്"
+  },
+  "back": {
+    "en": "Back",
+    "ml": "പുറകിലേക്ക്"
+  },
+  "review_answers": {
+    "en": "Review Answers",
+    "ml": "വിവരങ്ങൾ പരിശോധിക്കുക"
+  },
+  "check_answers_title": {
+    "en": "Check your answers",
+    "ml": "നൽകിയ വിവരങ്ങൾ ശരിയാണോ എന്ന് പരിശോധിക്കുക"
+  },
+  "check_answers_intro": {
+    "en": "Please confirm the information below before checking eligible schemes. You can change any answer.",
+    "ml": "പദ്ധതികൾ പരിശോധിക്കുന്നതിന് മുമ്പ് വിവരങ്ങൾ ശരിയാണെന്ന് ഉറപ്പാക്കുക. ആവശ്യമെങ്കിൽ മാറ്റങ്ങൾ വരുത്താം."
+  },
+  "edit": {
+    "en": "Edit",
+    "ml": "മാറ്റുക"
+  },
+  "occupation": {
+    "en": "Occupation",
+    "ml": "തൊഴിൽ"
+  },
+  "district": {
+    "en": "District",
+    "ml": "ജില്ല"
+  },
+  "age": {
+    "en": "Age",
+    "ml": "പ്രായം"
+  },
+  "gender": {
+    "en": "Gender",
+    "ml": "ലിംഗം"
+  },
+  "disability": {
+    "en": "Disability Status",
+    "ml": "ഭിന്നശേഷി വിവരങ്ങൾ"
+  },
+  "not_provided": {
+    "en": "Not provided",
+    "ml": "നൽകിയിട്ടില്ല"
+  },
+  "check_schemes": {
+    "en": "Check Available Schemes",
+    "ml": "ലഭ്യമായ പദ്ധതികൾ പരിശോധിക്കുക"
+  },
+  "results_title": {
+    "en": "Your Preliminary Screening Results",
+    "ml": "നിങ്ങളുടെ പ്രാഥമിക പരിശോധനാ ഫലം"
+  },
+  "results_subtitle": {
+    "en": "Based on the household details you provided and the simulated demo rules.",
+    "ml": "നിങ്ങൾ നൽകിയ വിവരങ്ങളും ഡെമോ നിബന്ധനകളും അടിസ്ഥാനമാക്കിയുള്ളത്."
+  },
+  "matching_count_prefix": {
+    "en": "You may potentially qualify for",
+    "ml": "നിങ്ങൾക്ക് അനുയോജ്യമായേക്കാവുന്ന"
+  },
+  "schemes_found": {
+    "en": "schemes found",
+    "ml": "പദ്ധതികൾ കണ്ടെത്തി"
+  },
+  "why_shown": {
+    "en": "Why this was shown:",
+    "ml": "എന്തുകൊണ്ട് ഈ പദ്ധതി കാണിച്ചു:"
+  },
+  "docs_needed": {
+    "en": "Documents you may need:",
+    "ml": "ആവശ്യമായ രേഖകൾ:"
+  },
+  "where_to_apply": {
+    "en": "Where to apply:",
+    "ml": "എവിടെയാണ് അപേക്ഷിക്കേണ്ടത്:"
+  },
+  "what_next": {
+    "en": "What to do next:",
+    "ml": "അടുത്തതായി എന്തുചെയ്യണം:"
+  },
+  "more_info_needed_title": {
+    "en": "Schemes needing more information",
+    "ml": "കൂടുതൽ വിവരങ്ങൾ ആവശ്യമുള്ള പദ്ധതികൾ"
+  },
+  "more_info_needed_desc": {
+    "en": "We do not guess missing information. Provide the missing details below to check whether you qualify for these schemes:",
+    "ml": "വിട്ടുപോയ വിവരങ്ങൾ ഞങ്ങൾ ഊഹിക്കാറില്ല. താഴെ പറയുന്ന വിവരങ്ങൾ നൽകിയാൽ ഇവയും പരിശോധിക്കാം:"
+  },
+  "missing_income_prompt": {
+    "en": "Annual household income is required to screen these schemes.",
+    "ml": "ഈ പദ്ധതികൾ പരിശോധിക്കുന്നതിന് വാർഷിക വരുമാനം ആവശ്യമാണ്."
+  },
+  "add_income": {
+    "en": "Add Household Income",
+    "ml": "വരുമാന വിവരം നൽകുക"
+  },
+  "no_matches_title": {
+    "en": "No matching schemes found for this criteria",
+    "ml": "നൽകിയ വിവരങ്ങൾക്ക് അനുയോജ്യമായ പദ്ധതികൾ കണ്ടെത്തിയില്ല"
+  },
+  "no_matches_desc": {
+    "en": "Your household income or occupation currently exceeds or falls outside the demo criteria. You can edit your answers to test other criteria.",
+    "ml": "വരുമാന പരിധിയോ തൊഴിലോ ഡെമോ നിബന്ധനകൾക്ക് പുറത്താണ്. വിവരങ്ങൾ മാറ്റി വീണ്ടും പരിശോധിക്കാം."
+  },
+  "edit_answers_btn": {
+    "en": "Change Answers & Re-Screen",
+    "ml": "വിവരങ്ങളിൽ മാറ്റം വരുത്തി വീണ്ടും പരിശോധിക്കുക"
+  },
+  "start_over": {
+    "en": "Start Over",
+    "ml": "പുതിയ പരിശോധന"
+  },
+  "disclaimer_title": {
+    "en": "Important Prototype Disclaimer",
+    "ml": "പ്രധാന അറിയിപ്പ്"
+  },
+  "disclaimer_text": {
+    "en": "Potential eligibility is only a preliminary screening result based on the information provided and the demo resource pack. It does not guarantee approval or benefit. Final eligibility is determined by the concerned authority.",
+    "ml": "ലഭ്യമായ വിവരങ്ങളും ഡെമോ നിബന്ധനകളും അടിസ്ഥാനമാക്കിയുള്ള ഒരു പ്രാഥമിക പരിശോധന മാത്രമാണിത്. ഇതിലൂടെ ആനുകൂല്യം ലഭിക്കുമെന്ന് ഉറപ്പ് നൽകുന്നില്ല. അന്തിമ തീരുമാനം ബന്ധപ്പെട്ട സർക്കാർ ഉദ്യോഗസ്ഥരുടേതായിരിക്കും."
+  },
+  "demo_notice": {
+    "en": "DEMO DATA: The schemes and Akshaya listings in this application are simulated for demonstration purposes.",
+    "ml": "ഡെമോ പതിപ്പ്: ഈ ആപ്ലിക്കേഷനിലെ പദ്ധതികളും വിവരങ്ങളും പ്രദർശനത്തിനായി തയ്യാറാക്കിയ സാങ്കൽപ്പിക വിവരങ്ങളാണ്."
+  },
+  "privacy_note": {
+    "en": "Privacy note: We do not ask for passwords, bank account numbers, or Aadhaar numbers during screening. Your data remains in your current browser session.",
+    "ml": "സ്വകാര്യത: പാസ്‌വേഡ്, ബാങ്ക് വിവരങ്ങൾ, ആധാർ നമ്പർ തുടങ്ങിയ രഹസ്യവിവരങ്ങൾ ഞങ്ങൾ ശേഖരിക്കുന്നില്ല. വിവരങ്ങൾ നിങ്ങളുടെ ബ്രൗസറിൽ മാത്രം നിലനിൽക്കും."
+  }
+}
+

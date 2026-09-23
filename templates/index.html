@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="landing-container">
+
+  <!-- Main Hero Card -->
+  <section class="hero-box">
+    <h1>{{ t('hero_subtitle') }}</h1>
+    <p class="hero-intro">{{ t('hero_intro') }}</p>
+
+    <div class="hero-actions">
+      <a href="{{ url_for('screening', step=1) }}" class="btn btn-primary">
+        {{ t('start_screening') }} &rarr;
+      </a>
+      <button type="button" class="btn btn-secondary btn-open-demo">
+        {{ t('try_demo') }}
+      </button>
+    </div>
+  </section>
+
+  <!-- How It Works (Calm, 3-step practical overview) -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+    <div class="card" style="margin-bottom: 0;">
+      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📝</div>
+      <h3 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.35rem;">
+        {{ 'Only Necessary Questions' if lang == 'en' else 'ആവശ്യമായ ചോദ്യങ്ങൾ മാത്രം' }}
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--color-text-muted);">
+        {{ 'No bank accounts, passwords, or sensitive identity proofs collected. Just basic screening attributes.' if lang == 'en' else 'ബാങ്ക് വിവരങ്ങളോ ആധാർ നമ്പറോ ചോദിക്കില്ല. പരിശോധനയ്ക്ക് ആവശ്യമായ ലളിതമായ വിവരങ്ങൾ മാത്രം.' }}
+      </p>
+    </div>
+
+    <div class="card" style="margin-bottom: 0;">
+      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔍</div>
+      <h3 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.35rem;">
+        {{ 'Transparent Screening' if lang == 'en' else 'സുതാര്യമായ പരിശോധന' }}
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--color-text-muted);">
+        {{ 'We clearly explain WHY each scheme is shown, listing the exact matching rules and missing requirements.' if lang == 'en' else 'ഓരോ പദ്ധതിയും എന്തുകൊണ്ട് അനുയോജ്യമായി എന്ന് നിബന്ധനകൾ സഹിതം വ്യക്തമായി വിശദീകരിക്കുന്നു.' }}
+      </p>
+    </div>
+
+    <div class="card" style="margin-bottom: 0;">
+      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📍</div>
+      <h3 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.35rem;">
+        {{ 'Local Application Guidance' if lang == 'en' else 'അടുത്തുള്ള സഹായ കേന്ദ്രങ്ങൾ' }}
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--color-text-muted);">
+        {{ 'Find your nearest Akshaya Centre or government office with document checklists and next steps.' if lang == 'en' else 'രേഖകളുടെ പട്ടികയും നിങ്ങളുടെ ജില്ലയിലെ അക്ഷയ കേന്ദ്രങ്ങളുടെ വിവരങ്ങളും നൽകുന്നു.' }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Disclaimer Box -->
+  <div class="disclaimer-banner">
+    <strong class="disclaimer-badge">{{ t('disclaimer_title') }}:</strong>
+    {{ t('disclaimer_text') }}
+  </div>
+
+</div>
+{% endblock %}
+
